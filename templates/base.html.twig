@@ -3,100 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Créer un site e-commerce</title>
+    <title>{% block title %}DiY District - Tissus Japonais{% endblock %}</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
     />
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
   </head>
+
   <body>
-    <!-- Barre de navigation -->
-    <nav>
-      <h2>diy district</h2>
-      <div class="onglets">
-        <p class="link">nouveautés</p>
-        <p class="link">tissus</p>
-        <p class="link">à propos</p>
-        <p class="link">blog</p>
-        <!-- <form>
-          <input type="search" placeholder="Rechercher" />
-        </form> -->
+    <div class="main-wrapper">
+      <header>
 
-        <p><i class="far fa-heart"></i></p>
-        <p><i class="fas fa-shopping-cart"></i></p>
-      </div>
-    </nav>
-    <!-- Fin de la barre de navigation -->
-
-    <!-- Header -->
-    <header>
-      <h1>Vente de tissus Japonais en ligne</h1>
-      <button>nos produits <i class="fas fa-paper-plane"></i></button>
-    </header>
-    <!-- Fin du header -->
-
-    <!-- Section principale -->
-    <section class="main">
-      <!-- Toutes les cartes -->
-
-      <div class="cards">
-        <div class="card">
-          <img src="https://source.unsplash.com/random/400x400" alt="hey" />
-          <div class="card-header">
-            <h4 class="title">Tissus Japonais</h4>
-            <h4 class="price">9.5€</h4>
-          </div>
-          <div class="card-body">
-            <p>Short moulant pour homme</p>
-          </div>
+      <!-- Début Top bar -->
+      {% if block('topbar') is defined %}
+      <div class="topbar">
+        <div class="topbar-contact">
+          <a href="/contact">Contact</a>
         </div>
-
-        <div class="card">
-          <img src="https://source.unsplash.com/random/400x400" alt="hey" />
-          <div class="card-header">
-            <h4 class="title">Tissus Japonais</h4>
-            <h4 class="price">9.5€</h4>
-          </div>
-          <div class="card-body">
-            <p>Des paires de chaussures stylées pour femme</p>
-          </div>
+        {% if app.user %}
+        <div class="topbar-login">
+          <a href="{{path('account')}}"class="link">Mon compte <small>({{app.user.lastname}})</small></a>
+          <a href="{{path('app_logout')}}"class="link">Déconnexion</a>
         </div>
+        {% else %}
+        <div class="topbar-register">
+          <a href="{{path('app_login')}}"class="link">Connexion</a>
+          <a href="{{path('register')}}"class="link">Inscription</a>
+        </div>
+        {% endif %}
+      </div >
+      {% endif %}
+      <!-- Fin Top bar -->
 
-        <div class="card">
-          <img src="https://source.unsplash.com/random/400x400" alt="hey" />
-          <div class="card-header">
-            <h4 class="title">Tissus Japonais</h4>
-            <h4 class="price">8€</h4>
-          </div>
-          <div class="card-body">
-            <p>Sport pour courir en plain air pour homme</p>
-          </div>
+      <!-- Début Navbar -->
+      {% if block('navbar') is defined %}
+      <div class="navbar">
+        <a href="/">diy district</a>
+        <div class="onglets">
+          <p class="link">nouveautés</p>
+          <p class="link">tissus</p>
+          <p class="link">à propos</p>
+          <p class="link">blog</p>
+          <p><i class="far fa-heart"></i></p>
+          <p><i class="fas fa-shopping-cart"></i></p>
         </div>
       </div>
-      <!-- Fin de toutes les cartes -->
+      {% endif %}
+      <!-- Fin NavBar -->
 
-      <!-- Video de presentation -->
-      <div class="video">
-        <iframe
-          src="https://www.youtube.com/embed/2COSkxxOtXY"
-          allowfullscreen
-        ></iframe>
+      <!-- Début slider -->
+      {% if block('slider') is defined %}
+      <div class="slider">
+        <h1>Vente de tissus Japonais en ligne</h1>
+        <button>nos produits <i class="fas fa-paper-plane"></i></button>
       </div>
-      <!-- Fin de la video de presentation -->
-    </section>
-    <!-- Fin de la section principale -->
+      {% endif %}
+      </header>
+      <!-- Fin slider -->
 
-    <!-- Pied de page -->
-    <footer>
-      <p>diy district&copy;2022</p>
-      <div class="social-media">
-        <p><i class="fab fa-facebook-f"></i></p>
-        <p><i class="fab fa-twitter"></i></p>
-        <p><i class="fab fa-instagram"></i></p>
-        <p><i class="fab fa-linkedin-in"></i></p>
-      </div>
-    </footer>
-    <!-- Fin du pied de page -->
+      <!-- Fin header -->
+
+      <!-- Début Section principale -->
+
+      <main>
+      {% block content %}
+      {% endblock %}
+      </main>
+
+      <!-- Fin section principale -->
+
+      <!-- Début Footer -->
+
+      
+      {% if block('footer') is defined %}
+      <footer>
+        <p>copyright 2022 &copy; diydistrict - site réalise par diydistrict.com</p>
+        <div class='informations'>
+          <a href="/">CGV-CGU</a><a href="/">Mentions légales</a><a href="/">Politique de confidentialité</a>
+        </div>
+      </footer>
+      {% endif %}
+      
+
+      <!-- Fin Footer-->
+    </div>
   </body>
 </html>

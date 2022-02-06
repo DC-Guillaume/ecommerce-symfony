@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import "./header", "./footer", "./homepage", "./registerPage", "./loginPage",
+  "./accountPage";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+}
