@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block topbar %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block title %}Produits - DiY District{% endblock %}
+
+{% block content %}
+<div class="productsPage-container">
+    <div class="products-filter">
+        {# <h1>Catégories</h1> #}
+        <button type="button" class="collapse-filter">Filtre par catégories</button>
+        <div class="content">
+        {{ form_start(form) }}
+            {{form_row(form.string)}}
+            {% for Categories in form.categories %}
+                <div class="category-filter pretty p-round">
+                    {{ form_row(Categories)}}
+                </div>
+            {% endfor %}
+        {{ form_end(form) }}
+        </div>
+
+    </div>
+    <div class="products-container">
+        <h1>Nos produits</h1>
+        <div class="products">
+        {% for product in products %}
+            <div class="product">
+                <a href="{{path('product', { 'slug' : product.slug})}}">
+                <div class="product-image">
+                        <img src="/uploads/products/{{ product.illustration}}" alt="{{ product.name }}"/>
+                </div>
+                    <h2>{{ product.name }}</h2>
+                    <p>{{(product.price /100) | number_format(2, ',','.') }} €</p>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

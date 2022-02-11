@@ -1,15 +1,14 @@
 footer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 5em 0 2em;
-  margin-top: 2em;
-  font-size: 1.3em;
-  background-color: #000;
-  color: #fff;
-  position: absolute;
-  bottom: 0;
+  height: 20vh;
   width: 100%;
+  font-size: 1.3em;
+  background-color: black;
+  color: white;
+
   a {
     color: white;
     padding: 0 1em;

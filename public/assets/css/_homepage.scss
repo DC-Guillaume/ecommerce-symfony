@@ -29,7 +29,6 @@
   display: flex;
   justify-content: center;
   margin-top: 80px;
-  margin-bottom: 20em;
 
   .video {
     width: 90%;
@@ -40,4 +39,9 @@
       height: 400px;
     }
   }
+}
+
+button a {
+  text-decoration: none;
+  color: black;
 }

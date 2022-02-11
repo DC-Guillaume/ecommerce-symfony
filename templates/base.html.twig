@@ -12,9 +12,8 @@
   </head>
 
   <body>
-    <div class="main-wrapper">
-      <header>
-
+    {% if block('header') is defined %}
+    <header>
       <!-- Début Top bar -->
       {% if block('topbar') is defined %}
       <div class="topbar">
@@ -39,14 +38,16 @@
       <!-- Début Navbar -->
       {% if block('navbar') is defined %}
       <div class="navbar">
-        <a href="/">diy district</a>
+        <a href="{{ path('home') }}" class"brand">diy district</a>
         <div class="onglets">
-          <p class="link">nouveautés</p>
-          <p class="link">tissus</p>
-          <p class="link">à propos</p>
-          <p class="link">blog</p>
-          <p><i class="far fa-heart"></i></p>
-          <p><i class="fas fa-shopping-cart"></i></p>
+          <a href="{{path('home')}}">nouveautés</a>
+          <a href="{{ path('products') }}">tissus japonais</a>
+          <a href="{{ path('products') }}">brocart</a>
+          <a href="{{ path('products') }}">mercerie</a>
+          <a href="{{ path('home') }}">à propos</a>
+          <a href="{{ path('home') }}">blog</a>
+          <a href="{{ path('home') }}"><i class="far fa-heart"></i></a>
+          <a href="{{ path('home') }}"><i class="fas fa-shopping-cart"></i></a>
         </div>
       </div>
       {% endif %}
@@ -56,10 +57,12 @@
       {% if block('slider') is defined %}
       <div class="slider">
         <h1>Vente de tissus Japonais en ligne</h1>
-        <button>nos produits <i class="fas fa-paper-plane"></i></button>
+        <button><a href="{{ path('products') }}">nos produits <i class="fas fa-paper-plane"></i></a></button>
       </div>
       {% endif %}
-      </header>
+    </header>
+    {% endif %}
+      
       <!-- Fin slider -->
 
       <!-- Fin header -->
@@ -87,6 +90,6 @@
       
 
       <!-- Fin Footer-->
-    </div>
+  <script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"/>
   </body>
 </html>
