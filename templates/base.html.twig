@@ -9,6 +9,7 @@
       href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
     />
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
@@ -22,12 +23,12 @@
         </div>
         {% if app.user %}
         <div class="topbar-login">
-          <a href="{{path('account')}}"class="link">Mon compte <small>({{app.user.lastname}})</small></a>
-          <a href="{{path('app_logout')}}"class="link">Déconnexion</a>
+          <a href="{{path('account')}}" class="link">Mon compte <i class="fa-solid fa-user"></i></a>
+          <a href="{{path('app_logout')}}"class="link">Déconnexion <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
         {% else %}
         <div class="topbar-register">
-          <a href="{{path('app_login')}}"class="link">Connexion</a>
+          <a href="{{path('app_login')}}"class="link">Connexion <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
           <a href="{{path('register')}}"class="link">Inscription</a>
         </div>
         {% endif %}
@@ -40,14 +41,14 @@
       <div class="navbar">
         <a href="{{ path('home') }}" class"brand">diy district</a>
         <div class="onglets">
-          <a href="{{path('home')}}">nouveautés</a>
+          {# <a href="{{path('home')}}">nouveautés</a> #}
           <a href="{{ path('products') }}">tissus japonais</a>
-          <a href="{{ path('products') }}">brocart</a>
-          <a href="{{ path('products') }}">mercerie</a>
+          <a href="{{ path('products') }}">tissus brocart</a>
+          {# <a href="{{ path('products') }}">mercerie</a> #}
           <a href="{{ path('home') }}">à propos</a>
           <a href="{{ path('home') }}">blog</a>
-          <a href="{{ path('home') }}"><i class="far fa-heart"></i></a>
-          <a href="{{ path('home') }}"><i class="fas fa-shopping-cart"></i></a>
+          {# <a href="{{ path('home') }}"><i class="far fa-heart"></i></a> #}
+          <a href="{{ path('cart') }}"><i class="fas fa-shopping-cart"></i></a>
         </div>
       </div>
       {% endif %}

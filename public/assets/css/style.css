@@ -26,6 +26,10 @@ header .topbar {
   padding: 0 2em;
 }
 
+header .topbar i {
+  margin-left: 0.5em;
+}
+
 header .topbar a {
   margin-right: 1em;
   font-size: 1.3em;
@@ -832,6 +836,102 @@ button a {
 .product-container .product-description .price {
   font-weight: bold;
   font-size: 2em;
+}
+
+.cartPage-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  max-width: 128em;
+  margin: auto;
+  margin-top: 5em;
+}
+
+.cartPage-container .content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.3em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.cartPage-container .content-table a {
+  text-decoration: none;
+  color: black;
+}
+
+.cartPage-container .content-table thead tr {
+  background-color: black;
+  color: #ffffff;
+  text-align: left;
+}
+
+.cartPage-container .content-table th,
+.cartPage-container .content-table td {
+  padding: 12px 15px;
+}
+
+.cartPage-container .content-table th .fa-plus,
+.cartPage-container .content-table th .fa-minus,
+.cartPage-container .content-table td .fa-plus,
+.cartPage-container .content-table td .fa-minus {
+  margin: 0 0.5em;
+}
+
+.cartPage-container .content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.cartPage-container .content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.cartPage-container .content-table tbody tr:last-of-type {
+  border-bottom: 2px solid black;
+}
+
+.cartPage-container .content-table .icons-cart {
+  text-align: center;
+}
+
+.cartPage-container .content-table .total {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.cartPage-container .btn-validateCart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.cartPage-container .btn-validateCart a {
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 200px;
+  display: block;
+  background-color: #000000;
+  border: solid 2px black;
+  padding: 1.1em 1.7em;
+  border-radius: 1em;
+  color: #ffff;
+  font-size: 1.3em;
+  text-decoration: none;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
 }
 
 html,

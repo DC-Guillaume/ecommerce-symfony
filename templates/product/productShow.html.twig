@@ -18,7 +18,7 @@
             <p>{{product.subtitle}}<p>
             <p class="price">{{(product.price /100) | number_format(2, ',','.') }} €</p>
             <p>{{product.description}}</p>
-            <a href="/">Ajouter au panier</a>
+            <a href="{{path('add_to_cart', { 'id' : product.id })}}">Ajouter au panier</a>
         </div>
     </div>
 </div>
