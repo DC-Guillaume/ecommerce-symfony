@@ -52,7 +52,7 @@ header .navbar {
           justify-content: space-between;
   background-color: #fff;
   padding: 0 2em;
-  margin-top: 2em;
+  padding-top: 2em;
 }
 
 header .navbar a {
@@ -434,7 +434,7 @@ button a {
 }
 
 .account h1 {
-  margin-top: 3em;
+  margin-top: 1em;
 }
 
 .account .btn {
@@ -950,6 +950,156 @@ button a {
   text-decoration: none;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
+}
+
+.cartPage-container .btn-validateCart a:hover {
+  color: #000000;
+  background-color: white;
+  border: solid 2px black;
+}
+
+.orderPage-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  max-width: 128em;
+  margin: auto;
+  padding-top: 5em;
+}
+
+.orderPage-container img {
+  border-radius: 0.5em;
+}
+
+.orderPage-container .btn-validate {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.orderPage-container .btn-validate button,
+.orderPage-container .btn-validate a {
+  display: block;
+  text-align: center;
+  background-color: #000000;
+  border: solid 2px black;
+  padding: 1.1em 1.7em;
+  border-radius: 0.5em;
+  color: #ffff;
+  font-size: 1.3em;
+  text-decoration: none;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.orderPage-container .btn-validate button:hover,
+.orderPage-container .btn-validate a:hover {
+  color: #000000;
+  background-color: white;
+  border: solid 2px black;
+}
+
+.orderPage-container .order-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.orderPage-container .order-container .container-left {
+  width: calc(100% / 2 - 1%);
+  margin-right: calc((1% * 2) / 1);
+}
+
+.orderPage-container .order-container .container-left p {
+  padding-left: 1em;
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.orderPage-container .order-container .container-left .addresses-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2em;
+}
+
+.orderPage-container .order-container .container-left label {
+  font-size: 1.3em;
+}
+
+.orderPage-container .order-container .container-left input[type="radio"] {
+  accent-color: black;
+  margin-right: 1em;
+}
+
+.orderPage-container .order-container .container-left a {
+  color: black;
+}
+
+.orderPage-container .order-container .container-right {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.orderPage-container .order-container .container-right .order-price-summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.orderPage-container .order-container .container-right .order-price-summary p {
+  font-size: 1.3em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.orderPage-container .order-container .container-right .products-cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1em;
+}
+
+.orderPage-container .order-container .container-right .products-cart .product-name {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.orderPage-container .order-container .container-right .products-cart p {
+  font-size: 1.3em;
+  min-width: 2em;
+  margin: 0 0 0 1em;
+}
+
+.orderPage-container .order-container .container-right .products-cart .order-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 6em;
 }
 
 html,

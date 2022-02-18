@@ -75,5 +75,10 @@
       text-decoration: none;
       transition-duration: 0.3s;
     }
+    a:hover {
+      color: #000000;
+      background-color: white;
+      border: solid 2px black;
+    }
   }
 }

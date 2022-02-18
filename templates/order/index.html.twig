@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block topbar %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block title %}Validation de commande - DiY District{% endblock %}
+
+{% block content %}
+<div class="orderPage-container">
+    <h1>Passer votre commande</h1>
+
+    <div class="order-container">
+        <div class="container-left">
+            <h2>Choisir l'adresse de livraison</h2>
+            {% set formhtml %}
+            {{ form_start(form, {action:path('order_summary')}) }}
+                {% for Addresses in form.addresses %}
+                <div class="addresses-row">
+                    {{ form_widget(Addresses)}}
+                    {{ form_label(Addresses)}}
+                </div>
+                {% endfor %}
+                <a href="{{path('account_address_add')}}">Ajouter une addresse de livraison</a>
+            <h2>Choisir le transporteur</h2>
+            {# {% set formhtml %} #}
+                {% for Delivery in form.delivery %}
+                <div class="addresses-row">
+                    {{ form_widget(Delivery)}}
+                    {{ form_label(Delivery)}}
+                </div>
+                {% endfor %}
+            {% endset %}
+            {{ formhtml|replace({'[br]': '<br/>'})|raw }}
+            {# {% endset %} #}
+        </div>
+        <div class="container-right">
+            <h2>Récaptitulatif de commande</h2>
+            {% for product in cart %}
+            <div class="products-cart">
+                <div>
+                    <img src="/uploads/products/{{ product.product.illustration}}" alt="{{ product.product.name}}" width="75px" height="50px"/>
+                </div>
+                <div class="product-name">
+                    <p>{{ product.product.name}}</p>
+                    <p>x {{ product.quantity }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="btn-validate">
+                {{form_row(form.submit)}}
+            </div>
+            {{form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

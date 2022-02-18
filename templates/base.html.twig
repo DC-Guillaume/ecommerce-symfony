@@ -23,6 +23,13 @@
         </div>
         {% if app.user %}
         <div class="topbar-login">
+          {% if app.request.attributes.get('_route') == 'account' %}
+            <a href="{{path('home')}}" class="link">Accueil</a>
+          {% elseif app.request.attributes.get('_route') == 'account_address' %}
+            <a href="{{path('home')}}" class="link">Accueil</a>
+          {% elseif app.request.attributes.get('_route') == 'account_password' %}
+            <a href="{{path('home')}}" class="link">Accueil</a>
+          {% endif %}
           <a href="{{path('account')}}" class="link">Mon compte <i class="fa-solid fa-user"></i></a>
           <a href="{{path('app_logout')}}"class="link">Déconnexion <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>

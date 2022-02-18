@@ -8,9 +8,9 @@
 
 {% block content %}
 <div class="account">
-    <div class="account-header">
+    {# <div class="account-header">
         <a href="{{ path('home')}}" class="btn">Accueil</a>
-    </div>
+    </div> #}
     <h1>Mon compte</h1>
     <div class="parent">
         <div class="child-left">
@@ -20,10 +20,12 @@
             <a href="{{ path('account_password')}}" class="btn">Wish List</a>
         </div>
         <div class="child-right">
+
             {% if app.user.addresses|length == 0 %}
                 <p>Vous n'avez pas encore d'adresse client veuillez en créer une.</p>
                 <a href="{{ path('account_address_add') }}">Créer une adresse</a>
             {% endif %}
+            <a href="{{ path('account_address_add') }}" class="add-address">Ajouter une autre adresse</a>
             {% for address in app.user.addresses %}
             <div class="address-card">
                 <h2>{{address.name}}</h2>
@@ -33,7 +35,6 @@
                 </div>
             </div>
             {% endfor %}
-            <a href="{{ path('account_address_add') }}" class="add-address">Ajouter une autre adresse</a>
         </div>
     </div>
 </div>

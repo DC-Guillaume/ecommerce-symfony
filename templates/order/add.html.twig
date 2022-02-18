@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block topbar %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block title %}Récapitulatif de commande - DiY District{% endblock %}
+
+{% block content %}
+<div class="orderPage-container">
+    <h1>Récapitualtif de votre commande</h1>
+    <div class="order-container">
+        {% set formhtml %}
+        <div class="container-left">
+            <h2>Adresse de livraison</h2>
+            <p>{{deliveryAddress|raw}}</p>
+            <h2>Transporteur</h2>
+            <p>{{delivery.name}}</p>
+            <p>{{delivery.description}}</p>
+            <p>{{delivery.price|number_format(2, '.', ',')}} €</p>
+        </div>
+        {% endset %}
+        {{ formhtml|replace({'[br]': '<br/>'})|raw }}
+        <div class="container-right">
+            <h2>Récaptitulatif de commande</h2>
+            {% set total = null %}
+            {% for product in cart %}
+            <div class="products-cart">
+                <div>
+                    <img src="/uploads/products/{{ product.product.illustration}}" alt="{{ product.product.name}}" width="75px" height="50px"/>
+                </div>
+                <div class="product-name">
+                    <p>{{ product.product.name}}</p>
+                    <p>x {{ product.quantity }}</p>
+                </div>
+                <div class="order-price">
+                    <p>{{((product.product.price * product.quantity) / 100)|number_format(2, ',','.') }} € </p>
+                </div>
+            </div>
+            {% set total = total + (product.product.price * product.quantity)%}
+            {% endfor %}
+            <div class="order-price-summary">
+                <p>Sous-total : {{ (total /100)|number_format(2, '.', ',')}} €</p>
+                <p>Livraison : {{ delivery.price|number_format(2, '.', ',')}} €</p>
+                <p>Total : {{ (total /100) + delivery.price|number_format(2, '.', ',')}} €</p>
+            </div>
+            <div class="btn-validate">
+                <a href="/">Payer | {{ (total /100) + delivery.price|number_format(2, '.', ',')}} €</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

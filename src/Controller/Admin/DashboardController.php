@@ -11,6 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Customer;
 use App\Entity\Category;
 use App\Entity\Product;
+use App\Entity\Delivery;
+use App\Entity\Order;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -19,7 +23,9 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        $routeBuilder = $this->get(AdminUrlGenerator::class);
+
+        return $this->redirect($routeBuilder->setController(OrderCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -31,8 +37,10 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Utilisateur', 'fa fa-user', Customer::class);
-        yield MenuItem::linkToCrud('Categories', 'fa fa-list', Category::class); 
-        yield MenuItem::linkToCrud('Products', 'fa fa-tags', Product::class); 
+        yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', Customer::class);
+        yield MenuItem::linkToCrud('Catégories', 'fa fa-list', Category::class); 
+        yield MenuItem::linkToCrud('Produits', 'fa fa-tags', Product::class);
+        yield MenuItem::linkToCrud('Livreurs', 'fa fa-truck', Delivery::class);
+        yield MenuItem::linkToCrud('Commandes', 'fa fa-shopping-bag', Order::class);
     }
 }

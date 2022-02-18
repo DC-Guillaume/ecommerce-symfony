@@ -17,7 +17,8 @@
             {{form_row(form.string)}}
             {% for Categories in form.categories %}
                 <div class="category-filter pretty p-round">
-                    {{ form_row(Categories)}}
+                    {{ form_widget(Categories)}}
+                    {{ form_label(Categories)}}
                 </div>
             {% endfor %}
         {{ form_end(form) }}

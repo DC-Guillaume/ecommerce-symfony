@@ -1,0 +1,112 @@
+.orderPage-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 128em;
+  margin: auto;
+  padding-top: 5em;
+
+  img {
+    border-radius: 0.5em;
+  }
+
+  .btn-validate {
+    // display: flex;
+    // justify-content: center;
+    margin-top: 1em;
+    width: 100%;
+
+    button,
+    a {
+      display: block;
+      text-align: center;
+      background-color: #000000;
+      border: solid 2px black;
+      padding: 1.1em 1.7em;
+      border-radius: 0.5em;
+      color: #ffff;
+      font-size: 1.3em;
+      text-decoration: none;
+      transition-duration: 0.3s;
+      cursor: pointer;
+    }
+    button:hover,
+    a:hover {
+      color: #000000;
+      background-color: white;
+      border: solid 2px black;
+    }
+  }
+
+  .order-container {
+    display: flex;
+    width: 100%;
+
+    .container-left {
+      width: calc(100% / 2 - 1%);
+      margin-right: calc((1% * 2) / 1);
+
+      p {
+        padding-left: 1em;
+        margin: 0;
+        font-size: 1.3em;
+      }
+
+      .addresses-row {
+        display: flex;
+        margin-bottom: 2em;
+      }
+
+      label {
+        font-size: 1.3em;
+      }
+
+      input[type="radio"] {
+        accent-color: black;
+        margin-right: 1em;
+      }
+
+      a {
+        color: black;
+      }
+    }
+
+    .container-right {
+      flex-grow: 1;
+
+      .order-price-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        p {
+          font-size: 1.3em;
+          margin: 0;
+          font-weight: bold;
+        }
+      }
+      .products-cart {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+
+        .product-name {
+          flex-grow: 1;
+        }
+
+        p {
+          font-size: 1.3em;
+          min-width: 2em;
+          margin: 0 0 0 1em;
+        }
+
+        .order-price {
+          display: flex;
+          align-items: center;
+          width: 6em;
+        }
+      }
+    }
+  }
+}
