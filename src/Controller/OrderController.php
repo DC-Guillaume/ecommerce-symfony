@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
-use App\Entity\Customer;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
 use App\Form\OrderType;
@@ -63,8 +62,11 @@ class OrderController extends AbstractController
             $deliveryAddressDetails .= '<br/>'.$deliveryAddress->getCountry();
 
             //enregistrer la commande Order
-
             $order = new Order();
+            //ajout d'une référence pour chaques commandes
+            $reference = $date->format('dmY').'-'.uniqid();
+
+            $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
             $order->setDeliveryName($delivery->getName());
@@ -75,7 +77,6 @@ class OrderController extends AbstractController
             $em->persist($order);
 
             //enregistrer les produits OrderSummary
-
             foreach($cart->getCart() as $product){
                 $orderDetails = new OrderDetails();
                 $orderDetails->setCustomerOrder($order);
@@ -87,14 +88,15 @@ class OrderController extends AbstractController
                 $em->persist($orderDetails);
             }
 
-            // $em->flush();
+            $em->flush();
 
             // Ce return ce trouve dans le if car si il n'y a pas de POST associé à cette route la page ne sera pas affichée
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getCart(),
                 'delivery' => $delivery,
                 'deliveryAddress' => $deliveryAddressDetails,
-    
+                // passage de la référence dans l'url pour Stripe
+                'reference' => $order->getReference()
             ]);
         }
         // Si il n'y a pas de POST le client sera donc redirigé vers le Cart

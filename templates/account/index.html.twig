@@ -8,16 +8,12 @@
 
 {% block content %}
 <div class="account">
-    {# <div class="account-header">
-        <a href="{{ path('home')}}" class="btn">Accueil</a>
-    </div> #}
     <h1>Mon compte</h1>
     <div class="parent">
         <div class="child-left">
-            <a href="{{ path('account_password')}}" class="btn">Commandes</a>
+            <a href="{{ path('account_order')}}" class="btn">Commandes</a>
             <a href="{{ path('account_address')}}" class="btn">Adresses</a>
             <a href="{{ path('account_password')}}" class="btn">Modifier mon mot de passe</a>
-            <a href="{{ path('account_password')}}" class="btn">Wish List</a>
         </div>
         <div class="child-right">
             

@@ -5,6 +5,10 @@
 {% block navbar %}{% endblock %}
 {% block footer %}{% endblock %}
 
+{% block js %}
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
 {% block title %}Récapitulatif de commande - DiY District{% endblock %}
 
 {% block content %}
@@ -18,7 +22,7 @@
             <h2>Transporteur</h2>
             <p>{{delivery.name}}</p>
             <p>{{delivery.description}}</p>
-            <p>{{delivery.price|number_format(2, '.', ',')}} €</p>
+            <p>{{(delivery.price / 100)|number_format(2, '.', ',')}} €</p>
         </div>
         {% endset %}
         {{ formhtml|replace({'[br]': '<br/>'})|raw }}
@@ -41,14 +45,45 @@
             {% set total = total + (product.product.price * product.quantity)%}
             {% endfor %}
             <div class="order-price-summary">
-                <p>Sous-total : {{ (total /100)|number_format(2, '.', ',')}} €</p>
-                <p>Livraison : {{ delivery.price|number_format(2, '.', ',')}} €</p>
-                <p>Total : {{ (total /100) + delivery.price|number_format(2, '.', ',')}} €</p>
+                <p><span class='bold-text'>Sous-total :</span> {{ (total / 100)|number_format(2, '.', ',')}} €</p>
+                <p><span class='bold-text'>Livraison :</span> {{ (delivery.price / 100) |number_format(2, '.', ',')}} €</p>
+                <p><span class='bold-text'>Total :</span> {{ (total /100) + (delivery.price / 100)|number_format(2, '.', ',')}} €</p>
             </div>
             <div class="btn-validate">
-                <a href="/">Payer | {{ (total /100) + delivery.price|number_format(2, '.', ',')}} €</a>
+                <a id="checkout-button">Payer {{ (total /100) + (delivery.price / 100)|number_format(2, '.', ',')}} €</a>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        var stripe = Stripe("pk_test_51KLTsfFXZ3JDEwqubEXauc4zIZlVVo4RFlqEikdcWcNF2aj2ukwdvIKXjYAUitzk5ukPh3d76UCUJ7FcYdzXAcrw00IKsqcZao");
+        var checkoutButton = document.getElementById("checkout-button");
+        checkoutButton.addEventListener("click", function() {
+            fetch("/commande/create-session/{{ reference }}", {
+                method: "POST",
+            })
+                .then(function(response) {
+                    return response.json();
+                    
+                })
+                .then(function(session) {
+                    if (session.error == 'order'){
+                        window.location.replace('{{ path('order') }}')
+                    } else {
+                        return stripe.redirectToCheckout({ sessionId: session.id });
+                    }
+                })
+                .then(function(result) {
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Error:", error);
+                });
+        });
+    </script>
 {% endblock %}

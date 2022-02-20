@@ -53,6 +53,11 @@ class Product
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $highlight;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +143,18 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getHighlight(): ?bool
+    {
+        return $this->highlight;
+    }
+
+    public function setHighlight(bool $highlight): self
+    {
+        $this->highlight = $highlight;
 
         return $this;
     }

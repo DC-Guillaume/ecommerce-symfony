@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block topbar %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block title %}Confirmation de commande - DiY District{% endblock %}
+
+{% block content %}
+<div class="orderSuccessPage-container">
+<h1>Confirmation de votre achat</h1>
+    <div class="order-details">
+        <h2>Détails de votre commande</h2>
+        <div class="user-details">
+            <p>Merci pour votre commande <span class='bold-text'>{{ order.user.lastname }} {{ order.user.firstname }}</span></p>
+            <p>Nous vous confirmons la prise en charge de votre commande n°<span class='bold-text'>{{ order.reference }}</span></p>
+            <p>Un email de confirmation vous a été envoyé à l'adresse email suivante : <span class='bold-text'>{{ order.user.email }}</span>.</p>
+        </div>
+        <h2>Détails de livraison:</h2>
+        <div class='address-details'>
+            <p>Votre commande sera livrée par le transporteur <span class='bold-text'>{{ order.deliveryName }}</span> à l'adresse suivante :</p>
+            <p>{{ order.deliveryAddress|raw }}</p>
+            <p>Vous pourrez suivre votre commande dans votre espace <a href="{{ path('account_order') }}"><span class='bold-text'>compte</span></a>.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

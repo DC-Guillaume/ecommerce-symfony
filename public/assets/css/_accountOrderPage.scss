@@ -1,0 +1,18 @@
+.order-details {
+  margin-left: 2em;
+}
+.order-price-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2em;
+
+  p {
+    margin: 0 2em 0 0;
+    font-size: 1.3em;
+  }
+
+  .text-bold {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,55 @@
+.content-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.3em;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  .text-right {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  thead tr {
+    background-color: black;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 12px 15px;
+
+    .fa-plus,
+    .fa-minus {
+      margin: 0 0.5em;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  tbody tr:last-of-type {
+    border-bottom: 2px solid black;
+  }
+
+  .icons-cart {
+    text-align: center;
+  }
+
+  .total {
+    font-weight: bold;
+    font-size: 1.4em;
+  }
+}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block topbar %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block title %}Ma commande - DiY District{% endblock %}
+
+{% block content %}
+<div class="account">
+    <h1>Mon compte</h1>
+    <div class="parent">
+        <div class="child-left">
+            <a href="{{ path('account_order')}}" class="btn">Commandes</a>
+            <a href="{{ path('account_address')}}" class="btn">Adresses</a>
+            <a href="{{ path('account_password')}}" class="btn">Modifier mon mot de passe</a>
+        </div>
+        <div class="child-right">
+            <h2>Ma commande référence : {{ order.reference}}</h2>
+            <div class="order-details">
+                <p><span class="bold-text">Effectuée le: </span>{{ order.createdAt|date('d/m/Y')}}</p>
+                <p><span class="bold-text">Mode de livraison selectionné: </span>{{ order.deliveryName}}</p>
+            </div>
+            <div>
+                <h2>Détails de la commande</h2>
+                <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Produits</th>
+                        <th>Quantités</th>
+                        <th>Prix unitaire</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for product in order.orderDetails %}
+                    <tr>
+                        <td>{{product.product}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{ (product.price / 100)|number_format(2, ',','.')}} €</td>
+                        <td>{{ (product.total / 100)|number_format(2, ',','.')}} €</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+                <div class="order-price-summary">
+                    <p><span class="text-bold">Sous-total :</span> {{ (order.getTotal / 100)|number_format(2, ',','.')}} €</p>
+                    <p><span class="text-bold">Frais de port :</span> {{ (order.deliveryPrice / 100)|number_format(2, ',','.')}} €</p>
+                    <p><span class="text-bold">Total : </span>{{ ((order.deliveryPrice + order.getTotal) / 100)|number_format(2, ',','.')}} €</p>
+                </div>
+            </div>
+        </div>
+{% endblock %}

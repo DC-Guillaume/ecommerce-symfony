@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block topbar %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block title %}Confirmation de commande - DiY District{% endblock %}
+
+{% block content %}
+<div class="orderErrorPage-container">
+<h1>Erreur lors de la finalisation de Commande</h1>
+    <div class="paiement-details">
+        <h2>Paiement échoué</h2>
+        <div class="paiement-error">
+            <p>Oups, <span class='bold-text'>{{ order.user.lastname }} {{ order.user.firstname }}</span></p>
+            <p>Une erreur semble être survenue lors du paiement de votre commande n°<span class='bold-text'>{{ order.reference }}</span></p>
+            <p>Un email détaillant l'erreur vous a été envoyé à l'adresse email suivante : <span class='bold-text'>{{ order.user.email }}</span></p>
+        </div>
+        <a href="{{ path('order') }}">Effectuer une nouvelle tentative</a>
+    </div>
+</div>
+{% endblock %}

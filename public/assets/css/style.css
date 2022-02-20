@@ -488,7 +488,7 @@ button a {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-top: 20px;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .account .reset-password input,
@@ -498,7 +498,8 @@ button a {
   height: 30px;
   width: 50%;
   min-width: 25rem;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  padding-left: 1em;
 }
 
 .account .reset-password input:focus,
@@ -582,9 +583,12 @@ button a {
   margin-left: 2em;
 }
 
+.parent .child-right p {
+  font-size: 1.3em;
+}
+
 .parent .child-right .add-address {
   color: black;
-  margin-top: 2em;
 }
 
 .parent .child-right .address-card {
@@ -958,6 +962,83 @@ button a {
   border: solid 2px black;
 }
 
+.orderSuccessPage-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  max-width: 128em;
+  margin: auto;
+  padding-top: 5em;
+}
+
+.orderSuccessPage-container .bold-text {
+  font-weight: 600;
+}
+
+.orderSuccessPage-container a {
+  color: black;
+}
+
+.orderSuccessPage-container .order-details p {
+  font-size: 1.3em;
+}
+
+.orderSuccessPage-container .order-details .user-details,
+.orderSuccessPage-container .order-details .address-details {
+  margin: 2em;
+}
+
+.orderErrorPage-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  max-width: 128em;
+  margin: auto;
+  padding-top: 5em;
+}
+
+.orderErrorPage-container .bold-text {
+  font-weight: 600;
+}
+
+.orderErrorPage-container a {
+  margin-top: 2em;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  background-color: #000000;
+  border: solid 2px black;
+  padding: 1.1em 1.7em;
+  border-radius: 0.5em;
+  color: #ffff;
+  font-size: 1.3em;
+  text-decoration: none;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.orderErrorPage-container a:hover {
+  color: #000000;
+  background-color: white;
+  border: solid 2px black;
+}
+
+.orderErrorPage-container .paiement-error p {
+  font-size: 1.3em;
+}
+
 .orderPage-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1064,6 +1145,9 @@ button a {
 .orderPage-container .order-container .container-right .order-price-summary p {
   font-size: 1.3em;
   margin: 0;
+}
+
+.orderPage-container .order-container .container-right .order-price-summary .bold-text {
   font-weight: bold;
 }
 
@@ -1100,6 +1184,92 @@ button a {
       -ms-flex-align: center;
           align-items: center;
   width: 6em;
+}
+
+.content-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.3em;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table .text-right {
+  text-align: center;
+  font-weight: 600;
+}
+
+.content-table a {
+  text-decoration: none;
+  color: black;
+}
+
+.content-table thead tr {
+  background-color: black;
+  color: #ffffff;
+  text-align: left;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table th .fa-plus,
+.content-table th .fa-minus,
+.content-table td .fa-plus,
+.content-table td .fa-minus {
+  margin: 0 0.5em;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid black;
+}
+
+.content-table .icons-cart {
+  text-align: center;
+}
+
+.content-table .total {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.order-details {
+  margin-left: 2em;
+}
+
+.order-price-summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 2em;
+}
+
+.order-price-summary p {
+  margin: 0 2em 0 0;
+  font-size: 1.3em;
+}
+
+.order-price-summary .text-bold {
+  font-weight: 600;
 }
 
 html,

@@ -6,10 +6,12 @@
 <section class="auth-main">
 <div class="auth-form">
     <h1>Créer un compte</h1>
+    <div class="notification-message">
+        {% if notification %}
+            <p>{{ notification }}</p>
+        {% endif %}
+    </div>
     {{ form_start(form) }}
-    {# <div class="my-custom-class-for-errors">
-        {{ form_errors(form) }}
-    </div> #}
     <div class="auth-row">
         <div class="col">
             {{ form_row(form.firstname) }}

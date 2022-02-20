@@ -154,7 +154,7 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getFullName(): string
     {
-        return $this->getLastName().' '.$this->getLastName();
+        return $this->getLastName().' '.$this->getFirstName();
     }
 
     public function getFirstname(): ?string

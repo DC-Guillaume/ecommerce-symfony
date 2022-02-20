@@ -1,0 +1,27 @@
+.orderSuccessPage-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 128em;
+  margin: auto;
+  padding-top: 5em;
+
+  .bold-text {
+    font-weight: 600;
+  }
+
+  a {
+    color: black;
+  }
+
+  .order-details {
+    p {
+      font-size: 1.3em;
+    }
+
+    .user-details,
+    .address-details {
+      margin: 2em;
+    }
+  }
+}

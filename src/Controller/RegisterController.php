@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\Customer;
 use App\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,8 +17,9 @@ class RegisterController extends AbstractController
     /**
      * @Route("/inscription", name="register")
      */
-    public function index(ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher ): Response
+    public function index(ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
+        $notification = null;
         $em = $doctrine->getManager();
 
         $customer = new Customer();
@@ -28,18 +30,38 @@ class RegisterController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $customer = $form->getData();
 
-            //hashage du password
-            $plaintextPassword = $customer->getPassword();
-            $password = $passwordHasher->hashPassword($customer, $plaintextPassword);
+            //check si le customer n'existe pas déjà
+            $searchEmail = $em->getRepository(Customer::class)->findOneByEmail($customer->getEmail());
+
+            if(!$searchEmail){
+
+                //hashage du password
+                $plaintextPassword = $customer->getPassword();
+                $password = $passwordHasher->hashPassword($customer, $plaintextPassword);
+                $customer->setPassword($password);
+
+                // figer la data
+                $em->persist($customer);
+                // envoi de la data figé
+                $em->flush();
+                $notification ='Votre inscription est finalisée, vous pouvez vous connecter';
+
+                //envoi du mail de confirmation via MailJet
+                $mail = new Mail();
+                $content = "Bonjour ".$customer->getFirstName()."<br/>Bienvenue sur notre boutique en ligne de tissus Japonais";
+                $mail->send($customer->getEmail(), $customer->getFirstName(), 'Bienvenue sur DiY District', $content );
+
+            }else {
+                $notification ="L'email que vous avez renseigné existe déjà";
             
-            $customer->setPassword($password);
             
-            // figer la data
-            $em->persist($customer);
-            // envoi de la data figé
-            $em->flush();
+            
+            }
         }
 
-        return $this->render('register/index.html.twig', ['form' => $form -> createView()]);
+        return $this->render('register/index.html.twig', [
+        'form' => $form -> createView(),
+        'notification' => $notification,
+        ]);
     }
 }
