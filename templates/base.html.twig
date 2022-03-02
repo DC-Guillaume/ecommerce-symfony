@@ -19,26 +19,28 @@
       <!-- Début Top bar -->
       {% if block('topbar') is defined %}
       <div class="topbar">
-        <div class="topbar-contact">
-          <a href="/">Contact</a>
-        </div>
-        {% if app.user %}
-        <div class="topbar-login">
-        {# // un if permettant de faire apparaitre l'onglet sur des vue précise. #}
-          {% if 'compte' in app.request.uri %}
-            <a href="{{path('home')}}" class="link">Accueil</a>
+        <div class="topbar-size">
+          <div class="topbar-contact">
+            <a href="/">Contact</a>
+          </div>
+          {% if app.user %}
+          <div class="topbar-login">
+          {# // un if permettant de faire apparaitre l'onglet sur des vue précise. #}
+            {% if 'compte' in app.request.uri %}
+              <a href="{{path('home')}}" class="link">Accueil</a>
+            {% endif %}
+            <a href="{{path('account')}}" class="link">Mon compte <i class="fa-solid fa-user"></i></a>
+            <a href="{{path('app_logout')}}"class="link">Déconnexion <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <a href="{{path('cart')}}"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+          {% else %}
+          <div class="topbar-register">
+            <a href="{{path('app_login')}}"class="link">Connexion <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            <a href="{{path('register')}}"class="link">Inscription</a>
+            <a href="{{path('cart')}}"><i class="fas fa-shopping-cart"></i></a>
+          </div>
           {% endif %}
-          <a href="{{path('account')}}" class="link">Mon compte <i class="fa-solid fa-user"></i></a>
-          <a href="{{path('app_logout')}}"class="link">Déconnexion <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-          <a href="{{path('cart')}}"><i class="fas fa-shopping-cart"></i></a>
         </div>
-        {% else %}
-        <div class="topbar-register">
-          <a href="{{path('app_login')}}"class="link">Connexion <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-          <a href="{{path('register')}}"class="link">Inscription</a>
-          <a href="{{path('cart')}}"><i class="fas fa-shopping-cart"></i></a>
-        </div>
-        {% endif %}
       </div >
       {% endif %}
       <!-- Fin Top bar -->
@@ -46,13 +48,15 @@
       <!-- Début Navbar -->
       {% if block('navbar') is defined %}
       <div class="navbar">
-        <a href="{{ path('home') }}" class"brand">diy district</a>
-        <div class="onglets">
-          {# <a href="{{path('home')}}">nouveautés</a> #}
-          <a href="{{ path('products') }}">tissus japonais</a>
-          <a href="{{ path('products') }}">tissus brocart</a>
-          <a href="{{ path('home') }}">à propos</a>
-          <a href="{{ path('home') }}">blog</a>
+        <div class="navbar-size">
+          <a href="{{ path('home') }}" class"brand">diy district</a>
+          <div class="onglets">
+            {# <a href="{{path('home')}}">nouveautés</a> #}
+            <a href="{{ path('products') }}">tissus japonais</a>
+            <a href="{{ path('products') }}">tissus brocart</a>
+            <a href="{{ path('home') }}">à propos</a>
+            <a href="{{ path('home') }}">blog</a>
+          </div>
         </div>
       </div>
       {% endif %}
@@ -95,7 +99,7 @@
       
 
       <!-- Fin Footer-->
-  <script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"/>
+  <script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"/></script>
   </body>
   {% block script %}{% endblock %}
 </html>

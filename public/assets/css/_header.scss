@@ -1,70 +1,82 @@
 header {
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-height: 10vh;
 
   .topbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
     background-color: #000;
-    height: 5em;
-    padding: 0 2em;
 
-    i {
-      margin-left: 0.5em;
-    }
+    .topbar-size {
+      display: flex;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: center;
+      height: 5em;
+      width: 90%;
+      max-width: 128em;
+      margin: auto;
 
-    a {
-      margin-right: 1em;
-      font-size: 1.3em;
-      color: #fff;
-      text-decoration: none;
-    }
-    a:nth-last-child(-n + 1) {
-      margin-right: 0;
+      i {
+        margin-left: 0.5em;
+      }
+
+      a {
+        margin-right: 1em;
+        font-size: 1.3em;
+        color: #fff;
+        text-decoration: none;
+      }
+      a:nth-last-child(-n + 1) {
+        margin-right: 0;
+      }
     }
   }
 
   .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     background-color: #fff;
-    padding: 0 2em;
-    padding-top: 2em;
 
-    a {
-      display: flex;
-      align-items: center;
-      font-size: 3em;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-      text-align: center;
-    }
-    .onglets {
+    .navbar-size {
       display: flex;
       flex-wrap: wrap;
-    }
-    .onglets a {
-      font-size: 1.6em;
-      margin-right: 2em;
-      cursor: pointer;
-    }
+      justify-content: space-between;
+      width: 90%;
+      max-width: 128em;
+      padding-top: 2em;
+      margin: auto;
 
-    .onglets a:nth-last-child(-n + 1) {
-      margin-right: 0;
-    }
+      a {
+        display: flex;
+        align-items: center;
+        font-size: 3em;
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        text-align: center;
+      }
+      .onglets {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .onglets a {
+        font-size: 1.6em;
+        margin-right: 2em;
+        cursor: pointer;
+      }
 
-    .onglets input {
-      margin: 8px 20px;
-      padding: 15px;
-      border-radius: 30px;
-      border: none;
-      background-color: #f2f2f2;
-      outline: none;
+      .onglets a:nth-last-child(-n + 1) {
+        margin-right: 0;
+      }
+
+      .onglets input {
+        margin: 8px 20px;
+        padding: 15px;
+        border-radius: 30px;
+        border: none;
+        background-color: #f2f2f2;
+        outline: none;
+      }
     }
   }
 

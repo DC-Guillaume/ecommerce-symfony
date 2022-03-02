@@ -1,0 +1,7 @@
+<a href="{{path('product', { 'slug' : product.slug})}}">
+    <div class="product-image">
+        <img src="/uploads/products/{{ product.illustration}}" alt="{{ product.name }}"/>
+    </div>
+    <h2>{{ product.name }}</h2>
+    <p><span class="text-bold">{{(product.price /100) | number_format(2, ',','.') }} €</span> / 50cm</p>
+</a>

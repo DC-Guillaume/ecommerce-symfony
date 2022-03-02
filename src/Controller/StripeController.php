@@ -2,11 +2,9 @@
 
 namespace App\Controller;
 
-use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,12 +17,12 @@ class StripeController extends AbstractController
     /**
      * @Route("/commande/create-session/{reference}", name="stripe_create_session")
      */
-    public function index(EntityManagerInterface $entityManager, Cart $cart, $reference)
+    public function index(EntityManagerInterface $entityManager, $reference)
     {
         $productsForStripe = [];
         $YOUR_DOMAIN = 'http://diydistrict.fr';
 
-        $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
+        $order = $entityManager->getRepository(Order::class)->findOneBy(array('reference' => $reference));
 
         // Si il ne trouve pas de commande retour à la page order
         if (!$order){
@@ -33,7 +31,7 @@ class StripeController extends AbstractController
         
 
         foreach($order->getOrderDetails()->getValues() as $product){
-            $product_object = $entityManager->getRepository(Product::class)->findOneByName($product->getProduct());
+            $product_object = $entityManager->getRepository(Product::class)->findOneBy(array('name' => $product->getProduct()));
             $productsForStripe[] = [
                 'price_data' => [
                     'currency' => 'eur',
@@ -61,7 +59,7 @@ class StripeController extends AbstractController
 
         Stripe::setApiKey('sk_test_51KLTsfFXZ3JDEwquLfxxaSwzVAZnqGvLidYRTDZAPlYHta2gmEFtTZFzRbl3B2nCX7w646N6kD7EZbGeWYd88HmA00LjsTgX18');
 
-        // La Session Create génère un id pour stripe
+        // La Session create génère un id pour stripe
         $checkout_session = Session::create([
             'customer_email' => $this->getUser()->getEmail(),
             'payment_method_types' => ['card'],

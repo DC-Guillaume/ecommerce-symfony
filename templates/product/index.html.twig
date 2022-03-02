@@ -30,13 +30,7 @@
         <div class="products">
         {% for product in products %}
             <div class="product">
-                <a href="{{path('product', { 'slug' : product.slug})}}">
-                <div class="product-image">
-                        <img src="/uploads/products/{{ product.illustration}}" alt="{{ product.name }}"/>
-                </div>
-                    <h2>{{ product.name }}</h2>
-                    <p>{{(product.price /100) | number_format(2, ',','.') }} €</p>
-                </a>
+                {% include 'product/singleProduct.html.twig' %}
             </div>
         {% endfor %}
         </div>

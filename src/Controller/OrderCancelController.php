@@ -16,13 +16,14 @@ class OrderCancelController extends AbstractController
     public function index(ManagerRegistry $doctrine, $stripeSessionId): Response
     {
         $em = $doctrine->getManager();
-        $order = $em->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
+        $order = $em->getRepository(Order::class)->findOneBy(array('stripeSessionId' => $stripeSessionId));
 
+        // Si le user est différent de celui qui à effectué la commande, redirection vers la page Home
         if(!$order || $order->getUser() != $this->getUser()){
             return $this->redirectToRoute('home');
         }
 
-        //envoyer un email pour indiquer l'échec de paiement
+        //Envoi d'un email pour indiquer l'échec de paiement.
 
         return $this->render('order_cancel/index.html.twig', [
             'order' => $order,

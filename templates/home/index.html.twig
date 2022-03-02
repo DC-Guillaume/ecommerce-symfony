@@ -8,40 +8,23 @@
 
 {% block content %}
   <!-- Toutes les cartes -->
-  <div class="cards">
-    <div class="card">
-      <img src="https://source.unsplash.com/random/400x400" alt="hey" />
-      <div class="card-header">
-        <h4 class="title">Tissus Japonais</h4>
-        <h4 class="price">9.5€</h4>
+  <div class="best-products">
+    <h1>Nouveautés</h1>
+    <div class="products-hightlight">
+      {% for product in products %}
+      <div class="product">
+        {% include 'product/singleProduct.html.twig' %}
       </div>
-      <div class="card-body">
-        <p>Short moulant pour homme</p>
-      </div>
+      {% endfor %}
     </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/random/400x400" alt="hey" />
-      <div class="card-header">
-        <h4 class="title">Tissus Japonais</h4>
-        <h4 class="price">9.5€</h4>
+    <h1>Meilleures ventes</h1>
+    <div class="products-hightlight">
+      {% for product in products %}
+      <div class="product">
+        {% include 'product/singleProduct.html.twig' %}
       </div>
-      <div class="card-body">
-        <p>Des paires de chaussures stylées pour femme</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/random/400x400" alt="hey" />
-      <div class="card-header">
-        <h4 class="title">Tissus Japonais</h4>
-        <h4 class="price">8€</h4>
-      </div>
-      <div class="card-body">
-        <p>Sport pour courir en plain air pour homme</p>
-      </div>
+      {% endfor %}
     </div>
   </div>
   <!-- Fin de toutes les cartes -->
-
 {% endblock %}

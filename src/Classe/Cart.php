@@ -4,21 +4,21 @@ namespace App\Classe;
 
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class Cart {
 
-    private $session;
+    private $request;
 
-    public function __construct(EntityManagerInterface $entityManager, SessionInterface $session)
+    public function __construct(EntityManagerInterface $entityManager, RequestStack $requestStack)
     {
-        $this->session = $session;
+        $this->request = $requestStack->getSession();
         $this->entityManager = $entityManager;
     }
 
     public function add($id)
     {
-        $cart = $this->session->get('cart', []);
+        $cart = $this->request->get('cart', []);
 
         if (!empty($cart[$id])){
             $cart[$id]++;
@@ -26,14 +26,14 @@ class Cart {
             $cart[$id] = 1;
         }
 
-        $this->session->set('cart', $cart);
+        $this->request->set('cart', $cart);
 
     }
 
     public function get()
     {
 
-        return $this->session->get('cart');
+        return $this->request->get('cart');
     }
 
     public function getCart()
@@ -60,21 +60,21 @@ class Cart {
     public function remove()
     {
 
-        return $this->session->remove('cart');
+        return $this->request->remove('cart');
     }
 
     public function delete($id)
     {
-        $cart = $this->session->get('cart', []);
+        $cart = $this->request->get('cart', []);
 
         unset($cart[$id]);
 
-        return $this->session->set('cart', $cart);
+        return $this->request->set('cart', $cart);
     }
 
     public function decrease($id)
     {
-        $cart = $this->session->get('cart', []);
+        $cart = $this->request->get('cart', []);
 
         if($cart[$id] >1) {
             $cart[$id]--;
@@ -82,6 +82,39 @@ class Cart {
             unset($cart[$id]);
         }
 
-        return $this->session->set('cart', $cart);
+        return $this->request->set('cart', $cart);
     }
 }
+
+// class Cart2 {     
+//     private  $session;
+    
+//     public function __construct(RequestStack $stack)
+//     {   
+//         $this->session = $stack->getSession();
+//     }
+
+//     public function add($id)
+//     {
+//         // Je stock la session actuelle du panier dans la variable cart qui renvoie un tableau
+//         $cart = $this->session->get('cart', []);
+//         // si le panier a bien un produit inserer id specifique au produit
+//         if (!empty($cart[$id])) {
+//             //Alors je rajoute une quantity
+//             $cart[$id]++;
+//         } else {
+//             $cart[$id] = 1;
+//         }
+//         $this->session->set('cart', $cart);
+//     }
+    
+//     public function get()
+//     {
+//         return $this->session->get('cart');
+//     }
+    
+//     public function remove()
+//     {
+//         return $this->session->remove('cart');     
+//     }
+// }

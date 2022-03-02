@@ -30,23 +30,23 @@ class RegisterController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $customer = $form->getData();
 
-            //check si le customer n'existe pas déjà
-            $searchEmail = $em->getRepository(Customer::class)->findOneByEmail($customer->getEmail());
+            //Check si le customer n'existe pas déjà
+            $searchEmail = $em->getRepository(Customer::class)->findOneBy(array('email' => $customer->getEmail()));
 
             if(!$searchEmail){
 
-                //hashage du password
+                //Hashage du password
                 $plaintextPassword = $customer->getPassword();
                 $password = $passwordHasher->hashPassword($customer, $plaintextPassword);
                 $customer->setPassword($password);
 
-                // figer la data
+                // Fige la data
                 $em->persist($customer);
-                // envoi de la data figé
+                // Envoi de la data figé
                 $em->flush();
                 $notification ='Votre inscription est finalisée, vous pouvez vous connecter';
 
-                //envoi du mail de confirmation via MailJet
+                //Envoi du mail de confirmation via MailJet
                 $mail = new Mail();
                 $content = "Bonjour ".$customer->getFirstName()."<br/>Bienvenue sur notre boutique en ligne de tissus Japonais";
                 $mail->send($customer->getEmail(), $customer->getFirstName(), 'Bienvenue sur DiY District', $content );
