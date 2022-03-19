@@ -18,10 +18,14 @@ class Cart {
 
     public function add($id)
     {
+        // Je stock la session actuelle du panier dans la variable cart qui renvoie un tableau
         $cart = $this->request->get('cart', []);
 
+        // Si le panier a bien un produit déjà existant
         if (!empty($cart[$id])){
+            // Alors je rajoute une quantity
             $cart[$id]++;
+
         }else {
             $cart[$id] = 1;
         }
@@ -85,36 +89,3 @@ class Cart {
         return $this->request->set('cart', $cart);
     }
 }
-
-// class Cart2 {     
-//     private  $session;
-    
-//     public function __construct(RequestStack $stack)
-//     {   
-//         $this->session = $stack->getSession();
-//     }
-
-//     public function add($id)
-//     {
-//         // Je stock la session actuelle du panier dans la variable cart qui renvoie un tableau
-//         $cart = $this->session->get('cart', []);
-//         // si le panier a bien un produit inserer id specifique au produit
-//         if (!empty($cart[$id])) {
-//             //Alors je rajoute une quantity
-//             $cart[$id]++;
-//         } else {
-//             $cart[$id] = 1;
-//         }
-//         $this->session->set('cart', $cart);
-//     }
-    
-//     public function get()
-//     {
-//         return $this->session->get('cart');
-//     }
-    
-//     public function remove()
-//     {
-//         return $this->session->remove('cart');     
-//     }
-// }
