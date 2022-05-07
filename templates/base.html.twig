@@ -8,8 +8,13 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
     />
+   
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/splide.min.css') }}" rel="stylesheet" />
+    {# <link href="{{ asset('assets/css/splide-core.min.css') }}" rel="stylesheet" /> #}
+    {# <link href="{{ asset('assets/css/themes/splide-default.min.css') }}" rel="stylesheet" /> #}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
     {% block js %}{% endblock %}
   </head>
 
@@ -64,10 +69,25 @@
 
       <!-- Début slider -->
       {% if block('slider') is defined %}
-      <div class="slider">
-        <h1>Vente de tissus Japonais en ligne</h1>
-        <button><a href="{{ path('products') }}">nos produits <i class="fas fa-paper-plane"></i></a></button>
-      </div>
+      <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+        <div class="splide__track">
+          <ul class="splide__list">
+          {% for slider in sliders %}
+            <li class="splide__slide">
+              <div class="splide__container">
+                <img src="/uploads/products/{{ slider.illustration}}" alt="">
+                <div class="container_slider">
+                  <h1>{{ slider.title}}</h1>
+                  <p>{{ slider.content}}</p>
+                  <a href="{{ slider.btnUrl }}">{{ slider.btnTitle }}</a>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+        <div class="splide__arrows"></div>
+      </section>
       {% endif %}
     </header>
     {% endif %}
@@ -100,6 +120,18 @@
 
       <!-- Fin Footer-->
   <script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"/></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+  <script>
+    var splide = new Splide( '.splide', {
+      type    : 'loop',
+      perPage : 1,
+      autoplay: true,
+      arrows: false,
+      pauseOnHover: false,
+      interval: 4000,
+      } );
+    splide.mount();
+  </script>
   </body>
   {% block script %}{% endblock %}
 </html>

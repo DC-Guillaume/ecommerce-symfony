@@ -13,6 +13,7 @@ use App\Entity\Category;
 use App\Entity\Product;
 use App\Entity\Delivery;
 use App\Entity\Order;
+use App\Entity\Slider;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
 
@@ -42,5 +43,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fa fa-list', Category::class); 
         yield MenuItem::linkToCrud('Produits', 'fa fa-tags', Product::class);
         yield MenuItem::linkToCrud('Livreurs', 'fa fa-truck', Delivery::class);
+        yield MenuItem::linkToCrud('Sliders', 'fa fa-image', Slider::class);
     }
 }

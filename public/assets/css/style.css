@@ -12,7 +12,7 @@ header {
 }
 
 header .topbar {
-  background-color: #000;
+  background-color: red;
 }
 
 header .topbar .topbar-size {
@@ -161,6 +161,10 @@ footer {
 footer a {
   color: white;
   padding: 0 1em;
+}
+
+.topbar {
+  background-color: red;
 }
 
 button a {
@@ -1335,5 +1339,42 @@ body::-webkit-scrollbar {
 
 main {
   min-height: 70vh;
+}
+
+.splide__track {
+  max-width: 128rem;
+  border-radius: 1rem;
+  margin: 5rem auto;
+}
+
+.splide__slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  max-width: 128rem;
+}
+
+.splide__slide img {
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.splide__slide .container_slider {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.splide__slide .container_slider h1 {
+  font-size: 3rem;
 }
 /*# sourceMappingURL=style.css.map */

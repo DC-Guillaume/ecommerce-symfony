@@ -22,3 +22,34 @@ body::-webkit-scrollbar {
 main {
   min-height: 70vh;
 }
+
+.splide__track {
+  max-width: 128rem;
+  border-radius: 1rem;
+  margin: 5rem auto;
+}
+
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 128rem;
+
+  img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+
+  .container_slider {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
