@@ -27,8 +27,8 @@ class OrderRepository extends ServiceEntityRepository
     {
         // Alias "o" pour orders dans le repository
         return $this->createQueryBuilder('o')
-            // chercher dans l'entité order isPaid uniquement quant elle est payé
-            ->andWhere('o.isPaid = 1')
+            // chercher dans l'entité order state uniquement quant elle est payé
+            ->andWhere('o.state > 0')
             // chercher les commandes qui correspondent uniquement au customer courant
             ->andWhere('o.user = :user')
             ->setParameter('user', $user)

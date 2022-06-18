@@ -26,18 +26,19 @@ class OrderSuccessController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        //Check si seulement la commande est en statut non payé pour la passer en payé dans EasyAdmin
-        if(!$order->getIsPaid()){
+        //Check si seulement la commande est en statut non payée pour la passer en statut payée dans EasyAdmin
+        if( $order->getState() == 0 ){
             // Modification du status isPaid à OK
-            $order->setIsPaid(1);
+            $order->setState(1);
             //vider le Panier
             $cart->remove();
             $em->flush();
 
             // Envoi de l'email de confirmation de commande pour le client
             $mail = new Mail();
-            $content = "Bonjour ".$order->getUser()->getFirstName()."<br/>Un grand merci pour votre commande effectuée sur notre site";
-            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstName(), 'Votre commande DiY District est validée', $content );
+            $title = "Un GRAND merci !";
+            $content = "Bonjour ". $order->getUser()->getLastName() ." " . $order->getUser()->getFirstName() ."<br/><br/>Votre confiance nous fait extremement plaisir. Nous allons préparer votre commande au plus vite.";
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstName(), 'DiY District - Votre commande est validée', $content, $title );
         }
 
         //Affichage du résumé de la commande

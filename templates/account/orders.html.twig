@@ -35,6 +35,20 @@
                         <p class="order-title">faite le</p>
                         <p>{{order.createdAt|date('d/m/Y')}}</p>
                     </div>
+                    <div class="order-status">
+                        <p class="order-title">statut</p>
+                        {% if order.state == 0 %}
+                        <p class="order-status--failed">échec de paiement</p>
+                        {% elseif order.state == 1 %}
+                        <p class="order-status--payed">payée</p>
+                        {% elseif order.state == 2 %}
+                        <p class="order-status--preparation">préparation</p>
+                        {% elseif order.state == 3 %}
+                        <p class="order-status--shipped">expédiée</p>
+                        {% elseif order.state == 4 %}
+                        <p class="order-status--canceled">annulée</p>
+                        {% endif %}
+                    </div>
                     <div class="order-products-number">
                         <p class="order-title">nombre de produits</p>
                         <p>{{order.orderDetails|length}}</p>

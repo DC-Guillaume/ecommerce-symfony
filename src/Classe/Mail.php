@@ -10,7 +10,7 @@ class Mail {
     private $api_key = "eeea80d5d0a6c5c1ed34c5523f650d05";
     private $api_key_secret = "e9cadff693ee916b3ae49a1c8097c13d";
 
-    public function send($to_email, $to_name, $subject, $content)
+    public function send($to_email, $to_name, $subject, $content, $title)
     {
         $mj = new Client($this->api_key, $this->api_key_secret, true,['version' => 'v3.1']);
         $body = [
@@ -30,6 +30,7 @@ class Mail {
                 'TemplateLanguage' => true,
                 'Subject' => $subject,
                 'Variables' => [
+                    "title" => $title,
                     "content" => $content,
                     ]
                 ]

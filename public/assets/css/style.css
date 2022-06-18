@@ -2774,6 +2774,7 @@ section.login .login_box .right .right-text h5 {
 }
 
 .orders-container .order-cards-container .order-card .order-card-details .order-date,
+.orders-container .order-cards-container .order-card .order-card-details .order-status,
 .orders-container .order-cards-container .order-card .order-card-details .order-products-number,
 .orders-container .order-cards-container .order-card .order-card-details .order-total-price {
   display: -webkit-box;
@@ -2786,6 +2787,7 @@ section.login .login_box .right .right-text h5 {
 }
 
 .orders-container .order-cards-container .order-card .order-card-details .order-date p,
+.orders-container .order-cards-container .order-card .order-card-details .order-status p,
 .orders-container .order-cards-container .order-card .order-card-details .order-products-number p,
 .orders-container .order-cards-container .order-card .order-card-details .order-total-price p {
   margin: 0;
@@ -2793,10 +2795,38 @@ section.login .login_box .right .right-text h5 {
 }
 
 .orders-container .order-cards-container .order-card .order-card-details .order-date .order-title,
+.orders-container .order-cards-container .order-card .order-card-details .order-status .order-title,
 .orders-container .order-cards-container .order-card .order-card-details .order-products-number .order-title,
 .orders-container .order-cards-container .order-card .order-card-details .order-total-price .order-title {
   font-weight: 600;
   font-size: 1.6rem;
+}
+
+.orders-container .order-cards-container .order-card .order-card-details .order-status--failed, .orders-container .order-cards-container .order-card .order-card-details .order-status--preparation, .orders-container .order-cards-container .order-card .order-card-details .order-status--shipped, .orders-container .order-cards-container .order-card .order-card-details .order-status--payed, .orders-container .order-cards-container .order-card .order-card-details .order-status--canceled {
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 2rem;
+}
+
+.orders-container .order-cards-container .order-card .order-card-details .order-status--failed {
+  background-color: #34312d;
+}
+
+.orders-container .order-cards-container .order-card .order-card-details .order-status--preparation {
+  background-color: #dda448;
+}
+
+.orders-container .order-cards-container .order-card .order-card-details .order-status--shipped {
+  background-color: #2c497f;
+}
+
+.orders-container .order-cards-container .order-card .order-card-details .order-status--payed {
+  background-color: #78c091;
+}
+
+.orders-container .order-cards-container .order-card .order-card-details .order-status--canceled {
+  background-color: #ad2e24;
 }
 
 .orders-container .order-cards-container .order-card .order-details-btn {

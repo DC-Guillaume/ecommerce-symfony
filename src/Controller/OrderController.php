@@ -73,7 +73,7 @@ class OrderController extends AbstractController
             $order->setDeliveryName($delivery->getName());
             $order->setDeliveryPrice($delivery->getPrice());
             $order->setDeliveryAddress($deliveryAddressDetails);
-            $order->setIsPaid(0);
+            $order->setState(0);
 
             $em->persist($order);
 
