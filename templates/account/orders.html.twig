@@ -8,50 +8,50 @@
 
 {% block content %}
 <div class="account">
-    <h1>Mon compte</h1>
-    <div class="parent">
-        <div class="child-left">
-            <a href="{{ path('account_order')}}" class="btn">Commandes</a>
-            <a href="{{ path('account_address')}}" class="btn">Adresses</a>
-            <a href="{{ path('account_password')}}" class="btn">Modifier mon mot de passe</a>
+    <div class="account-title">
+        <h2>Bienvenue dans votre espace commandes</h2>
+        <div class="account-faq">
+            <h3>Une question au sujet d'une commande? N'hésitez pas à </h3>
+            <a href="{{ path('home')}}">nous contacter</a>
         </div>
-        <div class="child-right">
-            {% if orders|length == 0 %}
-                <p>Vous n'avez pas encore de commandes</p>
-            {% else %}
-            <table class="content-table">
-            <thead>
-                <tr>
-                <th>Date</th>
-                <th>Référence</th>
-                <th>Produits</th>
-                <th>Total</th>
-                <th></th>
-                </tr>
-            </thead>
-            <tbody>
+    </div>
+    <div class="container-links">
+        <a href="{{ path('account')}}" class="account-link">Votre espace compte</a>
+    </div>
+    <div class="orders-container">
+        <h2>Vos commandes</h2>
+        {% if orders|length == 0 %}
+            <p>Vous n'avez pas encore de commandes</p>
+        {% else %}
+        <div class="order-cards-container">
             {% for order in orders %}
-                <tr>
-                    <td>{{order.createdAt|date('d/m/Y')}}</td>
-                    <td>{{order.reference}}</td>
-                    <td>{{order.orderDetails|length}}</td>
-                    <td>{{((order.getTotal + order.deliveryPrice) / 100)|number_format(2, '.',',')}} €</td>
-                    <td class="text-right"><a href="{{path('account_order_show', { 'reference': order.reference })}}">Voir commande</a></td>
-                </tr>
+            <div class="order-card">
+                <div class="order-number">
+                    <h3 >Commande No.</h3>
+                    <p>{{order.reference}}</p>
+                </div>
+                <div class="order-card-details">
+                    <div class="order-date">
+                        <p class="order-title">faite le</p>
+                        <p>{{order.createdAt|date('d/m/Y')}}</p>
+                    </div>
+                    <div class="order-products-number">
+                        <p class="order-title">nombre de produits</p>
+                        <p>{{order.orderDetails|length}}</p>
+                    </div>
+                    <div class="order-total-price">
+                        <p class="order-title">prix total</p>
+                        <p>{{((order.getTotal + order.deliveryPrice) / 100)|number_format(2, '.',',')}} €</p>
+                    </div>
+                </div>
+                <div class="order-details-btn">
+                    <a href="{{path('account_order_show', { 'reference': order.reference })}}">Détails commande</a>
+                </div>
+            </div>
                 {# {{dump(order)}} #}
             {% endfor %}
-                {# <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="total">Total:</td>
-                    <td class="total">{{(total / 100)|number_format(2, ',','.') }} €</td>
-                    <td></td>
-                </tr> #}
-            </tbody>
-            </table>
-            {% endif %}
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -15,6 +15,8 @@
     {# <link href="{{ asset('assets/css/themes/splide-default.min.css') }}" rel="stylesheet" /> #}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
     {% block js %}{% endblock %}
   </head>
 
@@ -23,10 +25,10 @@
     <header>
       <!-- Début Top bar -->
       {% if block('topbar') is defined %}
-      <div class="topbar">
+      <section class="topbar">
         <div class="topbar-size">
           <div class="topbar-contact">
-            <a href="/">Contact</a>
+            <a href="{{path('contact')}}">Contact</a>
           </div>
           {% if app.user %}
           <div class="topbar-login">
@@ -46,48 +48,59 @@
           </div>
           {% endif %}
         </div>
-      </div >
+      </section >
       {% endif %}
       <!-- Fin Top bar -->
 
       <!-- Début Navbar -->
       {% if block('navbar') is defined %}
-      <div class="navbar">
+      <section class="navbar">
         <div class="navbar-size">
-          <a href="{{ path('home') }}" class"brand">diy district</a>
+          <a href="{{ path('home') }}" class"brand"><img src="/uploads/images/logodiy.png" alt="" class="logo">diy district</a>
+          <div class="overlay-menu"></div>
           <div class="onglets">
-            {# <a href="{{path('home')}}">nouveautés</a> #}
-            <a href="{{ path('products') }}">tissus japonais</a>
-            <a href="{{ path('products') }}">tissus brocart</a>
-            <a href="{{ path('home') }}">à propos</a>
-            <a href="{{ path('home') }}">blog</a>
+            <div class="close-menu-slider">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="links">
+            {% for cat in cats.getCategories %}
+              <a href="{{ path('categories', {slug: cat.slug}) }}">{{cat.name}}</a>
+            {% endfor %}
+              <a href="{{ path('home') }}">A propos</a>
+            </div>
+          </div>
+          <div id="burger-menu" class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
-      </div>
+      </section>
       {% endif %}
       <!-- Fin NavBar -->
 
       <!-- Début slider -->
       {% if block('slider') is defined %}
-      <section id="image-carousel" class="splide" aria-label="Beautiful Images">
-        <div class="splide__track">
-          <ul class="splide__list">
-          {% for slider in sliders %}
-            <li class="splide__slide">
-              <div class="splide__container">
-                <img src="/uploads/products/{{ slider.illustration}}" alt="">
-                <div class="container_slider">
-                  <h1>{{ slider.title}}</h1>
-                  <p>{{ slider.content}}</p>
-                  <a href="{{ slider.btnUrl }}">{{ slider.btnTitle }}</a>
+      <section class="slider">
+        <div id="slider1" class="splide" aria-label="Beautiful Images">
+          <div class="splide__track">
+            <ul class="splide__list">
+            {% for slider in sliders %}
+              <li class="splide__slide">
+                <div class="splide__container" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2049194677871149) 0%, rgba(0,0,0,0.2049194677871149) 100%), url('/uploads/products/{{ slider.illustration}}');"  alt="">
+                  <div class="container_slider">
+                    <h1>{{ slider.title}}</h1>
+                    <p>{{ slider.content}}</p>
+                    <a href="{{ slider.btnUrl }}">{{ slider.btnTitle }}</a>
+                  </div>
                 </div>
-              </div>
-            </li>
-          {% endfor %}
-          </ul>
+              </li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div class="splide__arrows"></div>
         </div>
-        <div class="splide__arrows"></div>
-      </section>
+      <section>
       {% endif %}
     </header>
     {% endif %}
@@ -102,6 +115,7 @@
       {% block content %}
       {% endblock %}
       </main>
+      <div style="flex-grow:1"></div>
 
       <!-- Fin section principale -->
 
@@ -110,28 +124,43 @@
       
       {% if block('footer') is defined %}
       <footer>
-        <p>copyright 2022 &copy; diydistrict - site réalise par diydistrict.com</p>
-        <div class='informations'>
-          <a href="/">CGV-CGU</a><a href="/">Mentions légales</a><a href="/">Politique de confidentialité</a>
-        </div>
+        <section class="footer-wrapper">
+        <div class="footer-top">
+            <div class="logo-container">
+              <a href="{{ path('home') }}" class"brand"><img src="/uploads/images/logodiy.png" alt="" class="logo">diy district</a>
+            </div>
+            <div class="menu-footer">
+              <nav class="site-navigation">
+              {% for cat in cats.getCategories %}
+                <a href="{{ path('categories', {slug: cat.slug}) }}">{{cat.name}}</a>
+              {% endfor %}
+                <a href="{{ path('home') }}">Contact</a>
+              </nav>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="separator"></div>
+          <div class="footer-bottom">
+            <div class="informations">
+              <p>mentions légales</p>
+              <p>politique de confidentialité</p>
+              <p>gestion des cookies</p>
+            </div>
+            <p>© DiY District, 2022 All rights reserved</p>
+          </div>
+        </section>
       </footer>
       {% endif %}
       
 
       <!-- Fin Footer-->
-  <script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"/></script>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-  <script>
-    var splide = new Splide( '.splide', {
-      type    : 'loop',
-      perPage : 1,
-      autoplay: true,
-      arrows: false,
-      pauseOnHover: false,
-      interval: 4000,
-      } );
-    splide.mount();
-  </script>
+    <script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"/></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
   </body>
   {% block script %}{% endblock %}
 </html>

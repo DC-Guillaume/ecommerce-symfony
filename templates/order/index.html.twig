@@ -9,21 +9,28 @@
 
 {% block content %}
 <div class="orderPage-container">
-    <h1>Passer votre commande</h1>
-
+    <div class="account-title">
+        <h2>Passer votre commande</h2>
+        <div class="account-faq">
+            <h3>Vous désirez plus d'informations au sujet de nos transporteurs et de l'étape commande ?</h3>
+            <a href="{{ path('home')}}">Consultez notre FAQ</a>
+        </div>
+    </div>
     <div class="order-container">
         <div class="container-left">
-            <h2>Choisir l'adresse de livraison</h2>
+            <h3>Choisissez votre adresse de livraison</h3>
             {% set formhtml %}
             {{ form_start(form, {action:path('order_summary')}) }}
+            <div class="address-cards-container">
                 {% for Addresses in form.addresses %}
                 <div class="addresses-row">
                     {{ form_widget(Addresses)}}
                     {{ form_label(Addresses)}}
                 </div>
                 {% endfor %}
-                <a href="{{path('account_address_add')}}">Ajouter une addresse de livraison</a>
-            <h2>Choisir le transporteur</h2>
+            </div>
+            <a href="{{path('account_address_add')}}">Ajouter une addresse de livraison</a>
+            <h3>Choisissez votre transporteur</h3>
             {# {% set formhtml %} #}
                 {% for Delivery in form.delivery %}
                 <div class="addresses-row">
@@ -36,7 +43,8 @@
             {# {% endset %} #}
         </div>
         <div class="container-right">
-            <h2>Récaptitulatif de commande</h2>
+            <h3>Récaptitulatif de commande</h3>
+            {% set total = null %}
             {% for product in cart %}
             <div class="products-cart">
                 <div>
@@ -47,6 +55,7 @@
                     <p>x {{ product.quantity }}</p>
                 </div>
             </div>
+            {% set total = total + (product.product.price * product.quantity) %}
             {% endfor %}
             <div class="btn-validate">
                 {{form_row(form.submit)}}

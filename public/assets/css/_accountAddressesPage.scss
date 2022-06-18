@@ -1,0 +1,121 @@
+.addresses {
+  h2 {
+    font-size: 2rem;
+    font-family: var(--font-family-roboto);
+  }
+
+  .no-address {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-font-red-blood);
+  }
+
+  .address-link-create {
+    font-size: 1.5rem;
+    list-style: none;
+    text-decoration: none;
+    color: var(--color-font-blue);
+    font-weight: 500;
+
+    &:hover {
+      color: var(--color-font-mint);
+    }
+  }
+
+  .add-address-link {
+    margin-top: 2rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    list-style: none;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-font-blue);
+
+    &:hover {
+      color: var(--color-font-mint);
+    }
+  }
+
+  .addresses-cards-container {
+    display: grid;
+    margin-top: 3rem;
+
+    .address-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-family: var(--font-family-roboto);
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+
+      .delete-card {
+        display: flex;
+        gap: 2rem;
+
+        .btn {
+          background-color: var(--color-back-blue);
+          border-radius: 0.5rem;
+          padding: 0.8rem 1rem;
+          text-decoration: none;
+          list-style: none;
+          color: var(--color-font-white);
+          font-weight: 500;
+          font-size: 1.4rem;
+
+          &:hover {
+            background-color: var(--color-back-mint);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width:1000px) {
+  .addresses-cards-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    row-gap: 10rem;
+  }
+}
+
+@media screen and(min-width:750px) and (max-width: 999px) {
+  .addresses-cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    row-gap: 10rem;
+  }
+}
+
+@media screen and(max-width:749px) {
+  .addresses-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3rem;
+  }
+}
+
+@media screen and(max-width:500px) {
+  .addresses-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+
+    .address-card {
+      text-align: center;
+
+      .delete-card {
+        justify-content: center;
+      }
+    }
+  }
+}

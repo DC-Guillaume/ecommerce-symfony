@@ -1,31 +1,78 @@
 .account {
-  margin: 0 10%;
+  max-width: 128rem;
+  margin: 0 auto;
 
-  h1 {
-    margin-top: 1em;
+  //================================================================
+  // Account page principale
+  //================================================================
+  // .account-title {
+  //   background-color: var(--color-back-blue);
+  //   border-radius: 1rem;
+  //   padding: 3rem 2rem;
+
+  //   h2 {
+  //     font-size: 3rem;
+  //     margin: 0;
+  //     margin-bottom: 2rem;
+  //     font-family: var(--font-family-roboto);
+  //     color: var(--color-font-white);
+  //   }
+
+  //   .account-faq {
+  //     display: flex;
+  //     align-items: center;
+
+  //     h3 {
+  //       font-size: 1.6rem;
+  //       font-family: var(--font-family-roboto);
+  //       font-weight: 300;
+  //       margin: 0;
+  //       color: var(--color-font-white);
+  //     }
+
+  //     a {
+  //       display: inline-block;
+  //       font-size: 1.4rem;
+  //       padding: 1rem 2rem;
+  //       background-color: var(--color-back-yellow);
+  //       text-decoration: none;
+  //       color: var(--color-font-white);
+  //       font-weight: 600;
+  //       border-radius: 0.5rem;
+  //       margin-left: 1rem;
+  //     }
+  //   }
+  // }
+
+  .container-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    h2 {
+      font-size: 2rem;
+      margin: 0;
+      font-family: var(--font-family-roboto);
+    }
+
+    a {
+      font-size: 1.5rem;
+      list-style: none;
+      text-decoration: none;
+      color: var(--color-font-blue);
+      font-weight: 500;
+
+      &:hover {
+        color: var(--color-font-mint);
+      }
+    }
+    .link-is-active {
+      color: var(--color-font-mint);
+    }
   }
 
-  .btn {
-    text-align: center;
-    width: fit-content;
-    display: block;
-    background-color: #000000;
-    border: solid 2px black;
-    padding: 1.1em 1.7em;
-    border-radius: 1em;
-    color: #ffff;
-    font-size: 1.3em;
-    text-decoration: none;
-    transition-duration: 0.3s;
-  }
-  .btn:hover {
-    color: #000000;
-    background-color: white;
-    border: solid 2px black;
-  }
-
-  .reset-password,
-  .add-address {
+  .reset-password {
     height: auto;
     display: flex;
     flex-direction: column;
@@ -133,11 +180,28 @@
       }
     }
   }
+}
 
-  .child-left {
-    a {
-      min-width: 200px;
-      margin-bottom: 1em;
-    }
+@media screen and(min-width: 769px) {
+  .account {
+    padding: 5rem 3rem 0 3rem;
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .account {
+    padding: 5rem 2rem 0 2rem;
+
+    // .account-title {
+    //   text-align: center;
+    //   .account-faq {
+    //     flex-direction: column;
+
+    //     a {
+    //       margin: 0;
+    //       margin-top: 2rem;
+    //     }
+    //   }
+    // }
   }
 }

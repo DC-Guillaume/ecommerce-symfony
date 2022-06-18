@@ -3,36 +3,47 @@
 {% block title %}Log in - DiY District{% endblock %}
 
 {% block content %}
-<main class="login-main">
-    <form method="post" class="login-form">
-        <h1>Login</h1>
-        <label for="inputEmail">Email</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-        <label for="inputPassword">Mot de passe</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <section class="login">
+		<div class="login_box">
+			<div class="left">
+				<div class="top_link"><a href="{{ path('home') }}">Retour à l'accueil</a></div>
+				<div class="contact">
+                    <form method="post" class="login-form">
+                        <h1>Login</h1>
+                        {# <label for="inputEmail">Email</label> #}
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Email">
+                        {# <label for="inputPassword">Mot de passe</label> #}
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Mot de passe">
 
-        <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-        >
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
 
-        {% if app.user %}
-        <div class="login-status">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-        {% endif %}
-        <div class="login-col-btn">
-            <button class="btn" type="submit">
-                Se connecter
-            </button>
-        </div>
-        <div class="login-row">
-            <p>Pas encore de compte?<p>
-            <a href="/inscription">Inscrivez-vous</a>
-        </div>
-    </form>
-</main>
+                        {% if app.user %}
+                        <div class="login-status">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                        {% endif %}
+                        <div class="login-col-btn">
+                            <button class="btn" type="submit">
+                                Se connecter
+                            </button>
+                        </div>
+                        <div class="login-row">
+                            <p>Pas encore de compte?<p>
+                            <a href="{{ path('register') }}">Inscrivez-vous</a>
+                        </div>
+                    </form>
+				</div>
+			</div>
+			<div class="right">
+				<div class="right-text">
+					<a href="{{ path('home') }}" class"brand"><img src="/uploads/images/logodiy.png" alt="" class="logo" width="100px"></a>
+					<h2>diy district</h2>
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}

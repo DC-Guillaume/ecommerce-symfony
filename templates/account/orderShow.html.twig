@@ -8,46 +8,46 @@
 
 {% block content %}
 <div class="account">
-    <h1>Mon compte</h1>
-    <div class="parent">
-        <div class="child-left">
-            <a href="{{ path('account_order')}}" class="btn">Commandes</a>
-            <a href="{{ path('account_address')}}" class="btn">Adresses</a>
-            <a href="{{ path('account_password')}}" class="btn">Modifier mon mot de passe</a>
+   <div class="account-title">
+        <h2>Détails votre commande</h2>
+        <div class="account-faq">
+            <h3>Besoin de plus amples informations au sujet de cette commande ?</h3>
+            <a href="{{ path('home')}}">Contactez-nous</a>
         </div>
+    </div>
+    <div class="container-links">
+        <a href="{{ path('account_order')}}" class="account-link">Vos commandes</a>
+    </div>
         <div class="child-right">
-            <h2>Ma commande référence : {{ order.reference}}</h2>
-            <div class="order-details">
-                <p><span class="bold-text">Effectuée le: </span>{{ order.createdAt|date('d/m/Y')}}</p>
-                <p><span class="bold-text">Mode de livraison selectionné: </span>{{ order.deliveryName}}</p>
-            </div>
-            <div>
-                <h2>Détails de la commande</h2>
-                <table class="content-table">
-                <thead>
-                    <tr>
-                        <th>Produits</th>
-                        <th>Quantités</th>
-                        <th>Prix unitaire</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for product in order.orderDetails %}
-                    <tr>
-                        <td>{{product.product}}</td>
-                        <td>{{product.quantity}}</td>
-                        <td>{{ (product.price / 100)|number_format(2, ',','.')}} €</td>
-                        <td>{{ (product.total / 100)|number_format(2, ',','.')}} €</td>
-                    </tr>
+            <div class="order-detail-card">
+                <div class="order-number">
+                    <h3 >Commande No.</h3>
+                    <p>{{order.reference}}</p>
+                </div>
+                <div class="shipping-method">
+                    <p class="shipping-method-title">Mode de livraison selectionné</p>
+                    <p>{{ order.deliveryName}}<p>
+                </div>
+                <div class="order-card-details">
+                    <div class="order-date">
+                        <p class="order-title">faite le</p>
+                        <p>{{order.createdAt|date('d/m/Y')}}</p>
+                    </div>
+                    {% for product in order.orderDetails %}
+                    <div>
+                        <div>{{product.product}}</div>
+                        <div>{{product.quantity}}</div>
+                        <div>{{ (product.price / 100)|number_format(2, ',','.')}} €</div>
+                        <div>{{ (product.total / 100)|number_format(2, ',','.')}} €</div>
+                    </div>
                 {% endfor %}
-                </tbody>
-                </table>
-                <div class="order-price-summary">
+                </div>
+                <div class="order-details-total">
                     <p><span class="text-bold">Sous-total :</span> {{ (order.getTotal / 100)|number_format(2, ',','.')}} €</p>
                     <p><span class="text-bold">Frais de port :</span> {{ (order.deliveryPrice / 100)|number_format(2, ',','.')}} €</p>
                     <p><span class="text-bold">Total : </span>{{ ((order.deliveryPrice + order.getTotal) / 100)|number_format(2, ',','.')}} €</p>
                 </div>
             </div>
+        </div>
         </div>
 {% endblock %}

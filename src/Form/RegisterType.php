@@ -19,17 +19,26 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Nom',
+                'label' =>  false,
+                'attr' => array(
+                    'placeholder' => 'Nom'
+                ),
                 'constraints' => [new Length(['min' => 2, 'max' =>30])],
                 'required' => true,
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Prénom',
+                'label' => false,
+                'attr' => array(
+                    'placeholder' => 'Prénom'
+                ),
                 'constraints' => [new Length(['min' => 2, 'max' =>30])],
                 'required' => true
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => false,
+                'attr' => array(
+                    'placeholder' => 'Email'
+                ),
                 'constraints' => [new Length(['min' => 2, 'max' =>60])],
                 'required' => true
             ])
@@ -37,12 +46,18 @@ class RegisterType extends AbstractType
                 'type' => PasswordType::class,
                 'invalid_message' => "Les mots de passe doivent être identiques", 
                 'required' => true,
-                'label' => 'Mot de passe',
+                'label' => false,
                 'first_options' => [
-                    "label" => 'Mot de passe',
+                    "label" => false,
+                    'attr' => array(
+                        'placeholder' => 'Mot de passe'
+                    ),
                 ],
                 'second_options' => [
-                    "label" => 'Confirmer votre mot de passe',
+                    "label" => false,
+                    'attr' => array(
+                        'placeholder' => 'Confirmer votre mot de passe'
+                    ),
                 ]
             ])
             ->add('submit', SubmitType::class, [

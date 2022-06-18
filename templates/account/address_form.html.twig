@@ -8,52 +8,37 @@
 
 {% block content %}
 <div class="account">
-    <h1>Mon compte</h1>
-    <div class="parent">
-        <div class="child-left">
-            <a href="{{ path('account_order')}}" class="btn">Commandes</a>
-            <a href="{{ path('account_address')}}" class="btn">Adresses</a>
-            <a href="{{ path('account_password')}}" class="btn">Modifier mon mot de passe</a>
+    <div class="account-title">
+        <h2>Espace modification d'adresse</h2>
+        <div class="account-faq">
+            <h3>Un problème pour effectuer un changement d'adresse ? </h3>
+            <a href="{{ path('home')}}">nous contacter</a>
         </div>
-        <div class="child-right">
-            {{ form_start(form) }}
-                <div class="add-address">
-                    <div class="col first-label">
-                        {{ form_row(form.name) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.lastname) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.firstname) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.company) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.address) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.postal) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.city) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.country) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(form.phone) }}
-                    </div>
-                    {# {% if notification %}
-                        <div class="alert">{{ notification }}</div>
-                    {% endif %} #}
-                    <div class="auth-col-btn">
-                        {{ form_row(form.submit) }}
-                    </div>
-                </div>
-            {{ form_end(form) }}
+    </div>
+    <div class="container-links">
+        <a href="{{ path('account')}}" class="account-link">Votre espace compte</a>
+    </div>
+    <div class="address-form-container">
+        {{ form_start(form, {'attr': {'class': 'add-address-form'}} ) }}
+
+            <h2>Créer une adresse</h2>
+            {{ form_widget(form.name) }}
+            {{ form_widget(form.company) }}
+            {{ form_widget(form.lastname) }}
+            {{ form_widget(form.firstname) }}
+            {{ form_widget(form.address) }}
+            {{ form_widget(form.postal) }}
+            {{ form_widget(form.city) }}
+            {{ form_widget(form.country) }}
+            {{ form_widget(form.phone) }}
+            {# {% if notification %}
+                <div class="alert">{{ notification }}</div>
+            {% endif %} #}
+            <div class="submit-address">
+                {{ form_widget(form.submit) }}
+            </div>
         </div>
+        {{ form_end(form) }}
     </div>
 </div>
 

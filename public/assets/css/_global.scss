@@ -1,0 +1,56 @@
+//=============================================================================
+// Bannière informations et FAQ
+//=============================================================================
+.account-title {
+  background-color: var(--color-back-blue);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+
+  h2 {
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    font-family: var(--font-family-roboto);
+    color: var(--color-font-white);
+  }
+
+  .account-faq {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      font-size: 1.6rem;
+      font-family: var(--font-family-roboto);
+      font-weight: 300;
+      margin: 0;
+      color: var(--color-font-white);
+    }
+
+    a {
+      text-align: center;
+      display: inline-block;
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      background-color: var(--color-back-yellow);
+      text-decoration: none;
+      color: var(--color-font-white);
+      font-weight: 600;
+      border-radius: 0.5rem;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .account-title {
+    text-align: center;
+    .account-faq {
+      flex-direction: column;
+
+      a {
+        margin: 0;
+        margin-top: 2rem;
+      }
+    }
+  }
+}

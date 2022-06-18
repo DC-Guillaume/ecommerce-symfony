@@ -13,21 +13,21 @@
 
 {% block content %}
 <div class="orderPage-container">
-    <h1>Récapitualtif de votre commande</h1>
+    <h2>Récapitualtif de votre commande</h2>
     <div class="order-container">
         {% set formhtml %}
-        <div class="container-left">
-            <h2>Adresse de livraison</h2>
+        <div class="container-left size-of-container">
+            <h3>Adresse de livraison</h3>
             <p>{{deliveryAddress|raw}}</p>
-            <h2>Transporteur</h2>
+            <h3>Transporteur</h3>
             <p>{{delivery.name}}</p>
             <p>{{delivery.description}}</p>
             <p>{{(delivery.price / 100)|number_format(2, '.', ',')}} €</p>
         </div>
         {% endset %}
         {{ formhtml|replace({'[br]': '<br/>'})|raw }}
-        <div class="container-right">
-            <h2>Récaptitulatif de commande</h2>
+        <div class="container-right size-of-container">
+            <h3>Récaptitulatif de commande</h3>
             {% set total = null %}
             {% for product in cart %}
             <div class="products-cart">

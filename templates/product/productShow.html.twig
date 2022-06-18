@@ -17,8 +17,58 @@
             <h2>{{product.name}}</h2>
             <p>{{product.subtitle}}<p>
             <p class="price">{{(product.price /100) | number_format(2, ',','.') }} €</p>
-            <p>{{product.description}}</p>
-            <a href="{{path('add_to_cart', { 'id' : product.id })}}">Ajouter au panier</a>
+            <div class="description-price-wrapper">
+                <div class="accordeon-wrapper">
+                    <div class="accordeon"><span>Description</span><span class="icon-chevron"><i class="fa-solid fa-chevron-down"></i></span></div>
+                    <div class="panel">
+                        <p>{{product.description}}</p>
+                    </div>
+                </div>
+                <a href="{{path('add_to_cart', { 'id' : product.id })}}">Ajouter au panier</a>
+            </div>
+        </div>
+    </div>
+    <div class="frequently_asked_question">
+        <div class="accordeon-wrapper">
+            <div class="accordeon"><span>Livraisons et retours</span><span class="icon-chevron"><i class="fa-solid fa-chevron-down"></i></span></div>
+            <div class="panel">
+                <div class="panel-content">
+                    <h3>Quels sont les délais de livraison</h3>
+                    <p>En livraison standard Colissimo, vous serez livrés sous 3 à 5 jours ouvrés pour la France métropolitaine.</br>
+                    Avec Chronopost, les délais de livraison sont de 24-48H jours ouvrés.</br>
+                    Pour l'Europe et les DOM-TOM, les délais de livraison sont d'une semaine environ.</p>
+                    <h3>Ma commande n'a pas encore été livrée, que faire?</h3>
+                    <p>Si vous attendez votre colis depuis plus de 7 jours, contactez-nous par email à info@diydistrict.fr</p>
+                    <h3>Quels pays livrez-vous?</h3>
+                    <p>Tous les pays de l’Union Européenne, les DOM-TOM.</p>
+                    <h3>Je souhaite retourner ma commande, comment faire?</h3>
+                    <p>Vous pouvez retourner votre commande dans un délai de 14 jours après réception du colis, sous réserve que les produits n’aient pas été altéré d'une quelconque manière.</br>
+                    <p>Seul le ou les articles sont remboursés hors frais de port.<p>
+                    <p>Les frais de retour sont à votre charge.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordeon-wrapper">
+            <div class="accordeon"><span>Guide d'entretien</span><span class="icon-chevron"><i class="fa-solid fa-chevron-down"></i></span></div>
+            <div class="panel">
+                <div class="panel-content">
+                    <h3>Comment laver mon tissu ?</h3>
+                    <p>Nous vous conseillons de toujours effectuer un premier lavage avant couture.</br>
+                    Il est préférable de laver vos tissus à 30° sans détergeants et sur un cycle de lavage doux si il ets effectuer en machine à laver.</br>
+                    Les brocarts de soie véritable nécessite un soin plus particulier. Un lavage à la main et avec un shampoing neutre est préférable. Il faudra également éviter un séchage direct au soleil.
+                </div>
+            </div>
+        </div>
+        <div class="accordeon-wrapper">
+            <div class="accordeon"><span>Une demande spécifique ?</span><span class="icon-chevron"><i class="fa-solid fa-chevron-down"></i></span></div>
+            <div class="panel">
+                <div class="panel-content">
+                    <h3>Vous avez des questions particulières ?</h3>
+                    <p>Vous désirez plus d'informations sur un de nos produits?</br>
+                    Vous avez un projet de confection et vous souhaitez que nous puissions vous aider dans votre choix de tissus?</br>
+                    N'hésitez pas à nous contacter via notre adresse email info@diydistrict.fr</br>
+                    </p>
+            </div>
         </div>
     </div>
 </div>

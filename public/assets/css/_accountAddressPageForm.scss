@@ -1,0 +1,68 @@
+.add-address-form {
+  h2 {
+    font-size: 2em;
+  }
+
+  input[type="text"],
+  input[type="tel"] {
+    font-size: 1.6rem;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 15px 0px;
+    border-bottom: 1px solid var(--color-font-blue);
+    padding: 7px 9px;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 500;
+    font-family: var(--font-family-roboto);
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+
+  #address_submit {
+    border: none;
+    border-radius: 8px;
+    display: block;
+    padding: 15px 50px;
+    background: var(--color-font-blue);
+    color: #fff;
+    font-weight: bold;
+    margin-top: 1.5rem;
+
+    &:hover {
+      background: var(--color-font-mint);
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .add-address-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+
+    h2 {
+      grid-column: span 2;
+    }
+
+    #address_address {
+      grid-column: span 2;
+    }
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .add-address-form {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    #address_submit {
+      width: 100%;
+    }
+  }
+}

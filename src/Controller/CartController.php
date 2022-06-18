@@ -6,14 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Classe\Cart;
+use Doctrine\Persistence\ManagerRegistry;
 
 class CartController extends AbstractController
 {
     /**
      * @Route("/cart", name="cart")
      */
-    public function index(Cart $cart): Response
+    public function index(ManagerRegistry $doctrine, Cart $cart): Response
     {
+        $em = $doctrine->getManager();
+
         return $this->render('cart/index.html.twig', [
             'cart' => $cart->getCart(),
         ]);

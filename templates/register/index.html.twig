@@ -3,38 +3,42 @@
 {% block title %}Inscription - DiY District{% endblock %}
 
 {% block content %}
-<section class="auth-main">
-<div class="auth-form">
-    <h1>Créer un compte</h1>
-    <div class="notification-message">
-        {% if notification %}
-            <p>{{ notification }}</p>
-        {% endif %}
-    </div>
-    {{ form_start(form) }}
-    <div class="auth-row">
-        <div class="col">
-            {{ form_row(form.firstname) }}
-        </div>
-        <div class="col">
-            {{ form_row(form.lastname) }}
-        </div>
-        <div class="col">
-            {{ form_row(form.email) }}
-        </div>
-        <div class="col">
-            {{ form_row(form.password) }}
-        </div>
-        <div class="auth-col-btn">
-            {{ form_row(form.submit) }}
-        </div>
-    </div>
-{{ form_end(form) }}
-    <div class="signin-row">
-        <p>Déjà un compte?<p>
-        <a href="/login">Connectez-vous</a>
-    </div>
-</div>
+<section class="register">
+		<div class="register_box">
+			<div class="left">
+				<div class="top_link"><a href="{{ path('home') }}">Retour à l'accueil</a></div>
+				<div class="contact">
 
-</section>
+                    {{ form_start(form, {'attr': {'class': 'register-form'}} ) }}
+
+                        <h2>Créer un compte</h2>
+                        {{ form_widget(form.firstname) }}
+                        {{ form_widget(form.lastname) }}
+                        {{ form_widget(form.email) }}
+                        {{ form_widget(form.password) }}
+                        <div class="notification-message">
+                        {% if notification %}
+                            <p>{{ notification }}</p>
+                        {% endif %}
+                        </div>
+                        {{ form_widget(form.submit) }}
+                        <div class="signin-row">
+                            <p>Déjà un compte?<p>
+                            <a href="{{ path('app_login') }}">Connectez-vous</a>
+                        </div>
+                    
+                        {{ form_end(form) }}
+
+
+
+				</div>
+			</div>
+			<div class="right">
+				<div class="right-text">
+					<a href="{{ path('home') }}" class"brand"><img src="/uploads/images/logodiy.png" alt="" class="logo" width="100px"></a>
+					<h2>diy district</h2>
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}

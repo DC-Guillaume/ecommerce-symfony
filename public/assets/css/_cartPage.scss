@@ -1,84 +1,150 @@
 .cartPage-container {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  max-width: 128em;
-  margin: auto;
-  margin-top: 5em;
+  max-width: 128rem;
+  margin: 0 auto;
+  padding: 0 3rem;
 
-  .content-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 1.3em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  h2 {
+    font-size: 3rem;
+    font-weight: 500;
+  }
 
-    a {
-      text-decoration: none;
-      color: black;
-    }
+  .products-count {
+    color: white;
+    background: var(--color-font-mint);
+    border-radius: 50%;
+  }
 
-    thead tr {
-      background-color: black;
-      color: #ffffff;
-      text-align: left;
-    }
+  .cartPage-products-cards {
+    display: grid;
 
-    th,
-    td {
-      padding: 12px 15px;
+    .product-cart-card {
+      display: flex;
+      flex-direction: column;
 
-      .fa-plus,
-      .fa-minus {
-        margin: 0 0.5em;
+      .product-cart-image {
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 0.5rem;
+        }
+      }
+
+      .product-cart-informations {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+
+        .top-container {
+          &__title {
+            font-size: 1.8em;
+            font-weight: 500;
+          }
+
+          &__description {
+            font-size: 1.4rem;
+          }
+        }
+
+        .bottom-container {
+          &__price {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.4rem;
+
+            .total-price {
+              color: var(--color-font-grey);
+            }
+          }
+
+          &__count {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .switcher-value {
+              display: flex;
+              gap: 1rem;
+              border: 1px solid var(--color-grey);
+              width: fit-content;
+              padding: 0.4rem 1rem;
+
+              a {
+                color: var(--color-font-blue);
+
+                &:hover {
+                  color: var(--color-font-mint);
+                }
+              }
+            }
+
+            .cart-remove-product {
+              text-decoration: none;
+              font-size: 1.4rem;
+              color: var(--color-grey);
+
+              &:hover {
+                color: var(--color-font-mint);
+              }
+            }
+          }
+        }
       }
     }
+  }
+  .btn-validateCart {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
 
-    tbody tr {
-      border-bottom: 1px solid #dddddd;
-    }
-
-    tbody tr:nth-of-type(even) {
-      background-color: #f3f3f3;
-    }
-
-    tbody tr:last-of-type {
-      border-bottom: 2px solid black;
-    }
-
-    .icons-cart {
+    a {
+      cursor: pointer;
+      display: inline-block;
+      background-color: var(--color-back-blue);
+      border-radius: 0.5rem;
+      padding: 1.5rem 3rem;
+      text-decoration: none;
+      list-style: none;
+      color: var(--color-font-white);
+      font-weight: 500;
+      font-size: 1.4rem;
       text-align: center;
-    }
 
-    .total {
-      font-weight: bold;
-      font-size: 1.4em;
+      &:hover {
+        background-color: var(--color-font-mint);
+      }
     }
+  }
+}
+
+@media screen and(min-width:881px) {
+  .cartPage-products-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    row-gap: 10rem;
+  }
+}
+
+@media screen and(min-width:501px) and (max-width: 880px) {
+  .cartPage-products-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    row-gap: 10rem;
+  }
+}
+
+@media screen and(max-width:500px) {
+  .cartPage-products-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
   }
 
   .btn-validateCart {
-    display: flex;
-    justify-content: right;
     a {
-      text-align: center;
-      width: fit-content;
-      min-width: 200px;
-      display: block;
-      background-color: #000000;
-      border: solid 2px black;
-      padding: 1.1em 1.7em;
-      border-radius: 1em;
-      color: #ffff;
-      font-size: 1.3em;
-      text-decoration: none;
-      transition-duration: 0.3s;
-    }
-    a:hover {
-      color: #000000;
-      background-color: white;
-      border: solid 2px black;
+      width: 100%;
     }
   }
 }

@@ -8,23 +8,46 @@
 
 {% block content %}
   <!-- Toutes les cartes -->
-  <div class="best-products">
+  <section class="categories-cards">
+    {% for cat in cats.getCategories %}
+    <a href="{{ path('categories', {slug: cat.slug}) }}" class="category-container">
+      <div class="category-card" style="background-image: linear-gradient(0deg, rgba(250,250,250,1) 3%, rgba(250,250,250,0) 50%), url('/uploads/categories/{{cat.illustration}}');">
+        <h2>{{cat.name}}</h2>
+      </div>
+    </a>
+    {% endfor %}
+  </section>
+
+  <section class="best-products">
     <h1>Nouveautés</h1>
-    <div class="products-hightlight">
-      {% for product in products %}
-      <div class="product">
-        {% include 'product/singleProduct.html.twig' %}
+    <div id="slider2" class="splide products-highlight" aria-label="Beautiful Images">
+      <div class="splide__track">
+        <ul class="splide__list">
+        {% for product in products %}
+          <li class="splide__slide product">
+            {% include 'product/singleProduct.html.twig' %}
+          </li>
+        {% endfor %}
+        </ul>
       </div>
-      {% endfor %}
     </div>
-    <h1>Meilleures ventes</h1>
-    <div class="products-hightlight">
-      {% for product in products %}
-      <div class="product">
-        {% include 'product/singleProduct.html.twig' %}
+  </section>
+
+  <section class="seo-grid-container">
+    <h2>Des tissus de qualités</h2>
+    <div class="grid-parent">
+      <div class="div1">
+        <h2>En provenance directe du Japon</h2>
+        <p>Vous trouverez dans notre boutique un large choix de tissus, que ce soit des tissus japonais traditionnels, modernes, avec des motifs japonais de type Seigaiha ou Asanoha ou bien encore avec des formes géométriques… Le tissu japonais peut vraiment prendre toutes les formes surtout lorsque l’on vous propose plus de 400 références !
+        Nous aimons notre travail et les tissus Japonais, nous fournissons donc des produits de haute qualité.</p>
       </div>
-      {% endfor %}
+      <div class="div2"></div>
+      <div class="div3"></div>
+      <div class="div4"></div>
+      <div class="div5">
+        <h2>L’histoire du tissu Japonais</h2>
+        <p>Le tissu japonisant est encré dans la culture japonaise et se distingue d’un premier coup d’œil et de nos jours, de nombreuses personnes préfèrent encore ce genre de tissu, car il représente un sublime côté artistique. Les Japonais sont des passionnés de beauté et ils veulent garder et mettre en exergue toujours ce côté esthétique dans leur vie quotidienne et spirituelle. On observe cette esthétique dans les jardins paysagés, bonsaï, ikebana, poterie, calligraphie, habillement, etc.</p>
+      </div>
     </div>
-  </div>
-  <!-- Fin de toutes les cartes -->
+  </section>
 {% endblock %}

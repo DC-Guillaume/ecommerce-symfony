@@ -8,16 +8,18 @@
 
 {% block content %}
 <div class="account">
-    <h1>Mon compte</h1>
-    <div class="parent">
-        <div class="child-left">
-            <a href="{{ path('account_order')}}" class="btn">Commandes</a>
-            <a href="{{ path('account_address')}}" class="btn">Adresses</a>
-            <a href="{{ path('account_password')}}" class="btn">Modifier mon mot de passe</a>
+    <div class="account-title">
+        <h2>Bienvenue dans votre compte</h2>
+        <div class="account-faq">
+            <h3>Vous avez des questions au sujet de celui-ci? N'hésitez pas à consulter</h3>
+            <a href="{{ path('home')}}">notre faq</a>
         </div>
-        <div class="child-right">
-            
-        </div>
+    </div>
+    <div class="container-links">
+        <h2>Menu</h2>
+        <a href="{{ path('account_order')}}" class="account-link">Commandes</a>
+        <a href="{{ path('account_address')}}" class="account-link">Adresses</a>
+        <a href="{{ path('account_password')}}" class="account-link">Modifier mon mot de passe</a>
     </div>
 </div>
 

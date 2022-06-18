@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block topbar %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block title %}Categorie - DiY District{% endblock %}
+
+{% block content %}
+
+<div class="productsPage-container">
+    <div class="products-container">
+            <h1>Nos {{ categories.name }}</h1>
+        <div class="products">
+        {% for product in products %}
+            <div class="product">
+                {% include 'product/singleProduct.html.twig' %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

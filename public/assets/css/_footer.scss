@@ -1,16 +1,136 @@
 footer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
   width: 100%;
-  font-size: 1.3em;
-  background-color: black;
-  color: white;
+  max-width: 128rem;
+  margin: 0 auto;
 
-  a {
-    color: white;
-    padding: 0 1em;
+  .footer-wrapper {
+    padding: 10rem 2rem 3rem;
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo-container {
+        font-size: 2.5rem;
+        font-weight: 600;
+
+        a {
+          display: flex;
+          align-items: center;
+          font-size: 3rem;
+          color: #2e4052;
+          text-decoration: none;
+        }
+
+        .logo {
+          width: 5rem;
+          margin-right: 2rem;
+        }
+      }
+      .menu-footer {
+        display: flex;
+
+        .site-navigation {
+          display: flex;
+          gap: 4rem;
+          margin-right: 4rem;
+        }
+
+        a {
+          text-decoration: none;
+          font-size: 1.6rem;
+          font-weight: 400;
+          color: #2e4052;
+
+          &:hover {
+            color: #bdd9bf;
+          }
+        }
+
+        .social-links {
+          display: flex;
+          gap: 1.3rem;
+
+          i {
+            color: #2e4052;
+
+            &:hover {
+              color: #bdd9bf;
+            }
+          }
+        }
+      }
+    }
+
+    .separator {
+      border: 0.5px solid;
+      background-color: #2e4052;
+      opacity: 0.1;
+      width: 100%;
+      margin-top: 8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        font-size: 1.4rem;
+        color: #2e4052;
+      }
+
+      .informations {
+        display: flex;
+        gap: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  footer {
+    .footer-wrapper {
+      padding: 10rem 2rem 3rem;
+
+      .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .menu-footer {
+          flex-direction: column-reverse;
+
+          .site-navigation {
+            flex-direction: column;
+            margin: 0;
+            gap: 1.5rem;
+          }
+
+          .social-links {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+      .separator {
+        margin-top: 2.8rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .informations {
+          gap: 1rem;
+        }
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
   }
 }

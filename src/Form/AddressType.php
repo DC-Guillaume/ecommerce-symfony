@@ -16,40 +16,67 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom de votre adresse',
+                'label' => false,
                 'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Nom de votre adresse'
+                ),
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
-                'required' => true
+                'label' => false,
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Prénom'
+                ),
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom',
-                'required' => true
+                'label' => false,
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Nom'
+                ),
             ])
             ->add('company', TextType::class, [
-                'label' => 'Société',
-                'required' => false
+                'label' => false,
+                'required' => false,
+                'attr' => array(
+                    'placeholder' => 'Société'
+                ),
             ])
             ->add('address', TextType::class, [
-                'label' => 'Adresse',
-                'required' => true
+                'label' => false,
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Adresse'
+                ),
             ])
             ->add('postal', TextType::class, [
-                'label' => 'Code postal',
-                'required' => true
+                'label' => false,
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Code postal'
+                ),
             ])
             ->add('city', TextType::class, [
-                'label' => 'Ville',
-                'required' => true
+                'label' => false,
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Ville'
+                ),
             ])
             ->add('country', TextType::class, [
-                'label' => 'Pays',
+                'label' => false,
                 'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Pays'
+                ),
             ])
             ->add('phone', TelType::class, [
-                'label' => 'Téléphone',
-                'required' => true
+                'label' => false,
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Téléphone'
+                ),
             ])
             ->add('submit', SubmitType::class, [
                 'label' => "Valider l'adresse",

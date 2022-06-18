@@ -16,8 +16,11 @@ class ChangePasswordType extends AbstractType
     {
         $builder
             ->add('old_password', PasswordType::class, [
-                'label' => 'Mot de passe actuel',
+                'label' => false,
                 'mapped' => false,
+                'attr' => array(
+                    'placeholder' => 'Ancien mot de passe'
+                ),
             ])
             ->add('new_password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -25,10 +28,16 @@ class ChangePasswordType extends AbstractType
                 'invalid_message' => "Les mots de passe doivent être identiques", 
                 'required' => true,
                 'first_options' => [
-                    "label" => 'Nouveau mot de passe',
+                    "label" => false,
+                    'attr' => array(
+                        'placeholder' => 'Nouveau mot de passe'
+                    ),
                 ],
                 'second_options' => [
-                    "label" => 'Confirmer le nouveau mot de passe',
+                    "label" => false,
+                    'attr' => array(
+                        'placeholder' => 'Confirmer le nouveau mot de passe'
+                    ),
                 ]
             ])
             ->add('submit', SubmitType::class, [

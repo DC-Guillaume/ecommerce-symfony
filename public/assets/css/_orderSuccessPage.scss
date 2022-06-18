@@ -1,10 +1,18 @@
 .orderSuccessPage-container {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
   max-width: 128em;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 3rem;
   padding-top: 5em;
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
 
   .bold-text {
     font-weight: 600;
@@ -15,13 +23,72 @@
   }
 
   .order-details {
+    display: flex;
+
     p {
-      font-size: 1.3em;
+      font-size: 1.4em;
     }
 
     .user-details,
     .address-details {
-      margin: 2em;
+      // margin: 2em;
+    }
+  }
+
+  .thank-order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2007177871148459) 7%,
+        rgba(0, 0, 0, 0.2007177871148459) 100%
+      ),
+      url("../images/photo4.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 1rem;
+    margin-top: 2rem;
+
+    h2 {
+      text-align: center;
+      font-size: 5rem;
+      color: var(--color-font-white);
+      font-weight: 600;
+    }
+  }
+}
+
+@media screen and(min-width: 769px) {
+  .orderSuccessPage-container {
+    .order-details {
+      gap: 4rem;
+    }
+
+    .thank-order {
+      height: 30rem;
+
+      h2 {
+        font-size: 5rem;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .orderSuccessPage-container {
+    .order-details {
+      flex-direction: column;
+    }
+
+    .thank-order {
+      height: 20rem;
+
+      h2 {
+        font-size: 2.5rem;
+      }
     }
   }
 }

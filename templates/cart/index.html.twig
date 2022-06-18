@@ -11,57 +11,51 @@
 {% block content %}
 <div class="cartPage-container">
     {% if cart|length > 0 %}
-    <h1>Votre panier</h1>
-    <table class="content-table">
-    <thead>
-        <tr>
-            <th>Produits</th>
-            <th></th>
-            <th>Quantités</th>
-            <th>Prix</th>
-            <th>Total</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+    <h2>Votre panier</h2>
+    <div class="cartPage-products-cards">
     {% set total = null %}
     {% for product in cart %}
-        <tr>
-            <td>
-            <img src="/uploads/products/{{ product.product.illustration}}" alt="{{ product.product.name}}" width="75px" height="50px"/>
-            </td>
-            <td>{{product.product.name}}</td>
-            <td>
-                <a href="{{ path('decrease_from_cart', {'id': product.product.id })}}"><i class="fa-solid fa-minus"></i></a>
-                {{product.quantity}}
-                <a href="{{ path('add_to_cart', {'id': product.product.id })}}"><i class="fa-solid fa-plus"></i></a>
-            </td>
-            <td>{{ (product.product.price / 100)|number_format(2, ',','.')}} €</td>
-            <td>{{((product.product.price * product.quantity) / 100)|number_format(2, ',','.') }} € </td>
-            <td class="icons-cart">
-                <a href="{{ path('delete_from_cart', {'id': product.product.id })}}">
-                    <i class="fa-solid fa-trash"></i>
+        <div class="product-cart-card">
+            <div class="product-cart-image">
+                <a href="{{path('product', {slug: product.product.slug})}}">
+                    <img src="/uploads/products/{{ product.product.illustration}}" alt="{{ product.product.name}}"/>
                 </a>
-            </td>
-        </tr>
-            {% set total = total + (product.product.price * product.quantity)%}
+            </div>
+            <div class="product-cart-informations">
+                <div class="top-container">
+                    <h2 class="top-container__title">{{product.product.name}}</h2>
+                    <p class="top-container__description">{{ product.product.description|length > 100 ? product.product.description|slice(0,100)|split(' ')|slice(0, -1)|join(' ')  ~ '...' : product.product.description}}</p>
+                </div>
+                <div class="bottom-container">
+                    <div class="bottom-container__price">
+                        <div class="price-per-unit">{{((product.product.price * product.quantity) / 100)|number_format(2, ',','.') }} € </div>
+                        {% if product.quantity > 1 %}
+                            <div class="total-price">(soit {{ product.quantity }} x  {{ (product.product.price / 100)|number_format(2, ',','.')}} €)</div>
+                        {% endif %}
+                    </div>
+                    <div class="bottom-container__count">
+                        <div class="switcher-value">
+                            <a href="{{ path('decrease_from_cart', {'id': product.product.id })}}"><i class="fa-solid fa-minus"></i></a>
+                            {{ product.quantity }}
+                            <a href="{{ path('add_to_cart', {'id': product.product.id })}}"><i class="fa-solid fa-plus"></i></a>
+                        </div>
+                        <a class="cart-remove-product"href="{{ path('delete_from_cart', {'id': product.product.id })}}">
+                            supprimer
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% set total = total + (product.product.price * product.quantity)%}
     {% endfor %}
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="total">Total:</td>
-            <td class="total">{{(total / 100)|number_format(2, ',','.') }} €</td>
-            <td></td>
-        </tr>
-    </tbody>
-    </table>
+    </div>
     <div class="btn-validateCart">
-        <a href="{{path('order')}}">Valider mon panier</a>
+        <a href="{{path('order')}}">{{(total / 100)|number_format(2, ',','.') }} € - Procéder au paiement</a>
     </div>
     {% else %}
-        <h1>Votre panier est actuellement vide</h1>
+        <h2>Votre panier est actuellement vide</h2>
     {% endif %}
+
 </div>
 
 {% endblock %}
