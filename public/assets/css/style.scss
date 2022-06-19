@@ -4,7 +4,12 @@
   "./accountPage", "./productsPage", "./productPage", "./cartPage",
   "./orderSuccessPage", "./orderErrorPage", "./orderPage", "./accountOrdersPage",
   "./accountOrderPage", "./variables", "./accountAddressesPage",
-  "./accountAddressPageForm", "./accountPasswordPage", "./global", "./contact";
+  "./accountAddressPageForm", "./accountPasswordPage", "./global",
+  "./contactPage";
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {

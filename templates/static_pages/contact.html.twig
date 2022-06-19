@@ -7,6 +7,35 @@
 
 {% block content %}
 <div id='map'></div>
+
+<section class='contact-form-container'>
+{{ form_start(form, {'attr': {'class': 'contact-form'}} ) }}
+                        
+  <h2>Contactez-nous</h2>
+  <div class="contact-form-informations">
+    {{ form_widget(form.firstname) }}
+    {{ form_widget(form.lastname) }}
+    {{ form_widget(form.email) }}
+  </div>
+  {{ form_widget(form.content) }}
+  <div class="submit-container">
+    <div class="contact-form-btn">
+      {{ form_widget(form.submit) }}
+    </div>
+    <div class="agree-terms">
+      {{ form_widget(form.agreeTerms) }}
+      <p>en cochant cette case vous acceptez de partager vos données avec nous.</p>
+    </div>
+  </div>
+  {% for message in app.flashes('notice_contact_form') %}
+    <p class="notice-contact-form">{{ message }}</p>
+  {% endfor %}
+
+{{ form_end(form) }}
+<p class="agree-terms-notice">diy district collecte vos données afin de faciliter votre expérience utilisateur et de traiter votre demande. Pour accéder à la charte de protection des données personnelles, suivez ce lien.</p>
+</div>
+
+
 <script>
 //==================================================
 // Gestion de la map page contact

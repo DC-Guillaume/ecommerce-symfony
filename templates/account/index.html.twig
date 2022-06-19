@@ -17,6 +17,9 @@
     </div>
     <div class="container-links">
         <h2>Menu</h2>
+        {% if is_granted('ROLE_ADMIN')%}
+            <a href="{{ path('admin')}}" class="account-link">Administration du site</a>
+        {% endif %}
         <a href="{{ path('account_order')}}" class="account-link">Commandes</a>
         <a href="{{ path('account_address')}}" class="account-link">Adresses</a>
         <a href="{{ path('account_password')}}" class="account-link">Modifier mon mot de passe</a>

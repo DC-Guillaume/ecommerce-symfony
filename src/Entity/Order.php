@@ -22,7 +22,7 @@ class Order
 
     /**
      * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="orders")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $user;
 
@@ -48,6 +48,7 @@ class Order
 
     /**
      * @ORM\OneToMany(targetEntity=OrderDetails::class, mappedBy="customerOrder")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $orderDetails;
 

@@ -19,7 +19,9 @@ class RegisterController extends AbstractController
      */
     public function index(ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $notification = null;
+        $notification_valid = null;
+        $notification_invalid = null;
+
         $em = $doctrine->getManager();
 
         $customer = new Customer();
@@ -44,24 +46,23 @@ class RegisterController extends AbstractController
                 $em->persist($customer);
                 // Envoi de la data figé
                 $em->flush();
-                $notification ='Votre inscription est finalisée, vous pouvez vous connecter';
+                $notification_valid ='Compte créer. Vous pouvez vous connecter !';
 
                 //Envoi du mail de confirmation via MailJet
                 $mail = new Mail();
-                $content = "Bonjour ".$customer->getFirstName()."<br/>Bienvenue sur notre boutique en ligne de tissus Japonais";
-                $mail->send($customer->getEmail(), $customer->getFirstName(), 'Bienvenue sur DiY District', $content );
+                $title = 'Bienvenue parmis nous !';
+                $content = "Bonjour ". $customer->getLastName() ." " . $customer->getFirstName() ."<br/>Il est temps de découvrir nos magnifiques tissus Japonais.";
+                $mail->send($customer->getEmail(), $customer->getFirstName(), 'Bienvenue sur DiY District', $content, $title );
 
             }else {
-                $notification ="L'email que vous avez renseigné existe déjà";
-            
-            
-            
+                $notification_invalid ="L'email que vous avez renseigné existe déjà";
             }
         }
 
         return $this->render('register/index.html.twig', [
         'form' => $form -> createView(),
-        'notification' => $notification,
+        'notification_valid' => $notification_valid,
+        'notification_invalid' => $notification_invalid,
         ]);
     }
 }

@@ -3,11 +3,11 @@
 {% block title %}Inscription - DiY District{% endblock %}
 
 {% block content %}
-<section class="register">
+    <section class="register">
 		<div class="register_box">
 			<div class="left">
 				<div class="top_link"><a href="{{ path('home') }}">Retour à l'accueil</a></div>
-				<div class="contact">
+                <div class="contact">
 
                     {{ form_start(form, {'attr': {'class': 'register-form'}} ) }}
 
@@ -16,22 +16,19 @@
                         {{ form_widget(form.lastname) }}
                         {{ form_widget(form.email) }}
                         {{ form_widget(form.password) }}
-                        <div class="notification-message">
-                        {% if notification %}
-                            <p>{{ notification }}</p>
-                        {% endif %}
-                        </div>
                         {{ form_widget(form.submit) }}
                         <div class="signin-row">
-                            <p>Déjà un compte?<p>
-                            <a href="{{ path('app_login') }}">Connectez-vous</a>
+                            <p>Déjà un compte? <a href="{{ path('app_login') }}">Connectez-vous</a><p>
                         </div>
                     
-                        {{ form_end(form) }}
-
-
-
-				</div>
+                    {{ form_end(form) }}
+                    
+                </div>
+                {% if notification_valid %}
+                    <p class="email_valid">{{ notification_valid }}</p>
+                {% elseif notification_invalid %}
+                    <p class="email_invalid">{{ notification_invalid }}</p>
+                {% endif %}
 			</div>
 			<div class="right">
 				<div class="right-text">

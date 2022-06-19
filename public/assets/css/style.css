@@ -1003,6 +1003,7 @@ section.register .register_box .left .contact .register-form {
 
 section.register .register_box .left .contact .register-form h2 {
   font-size: 3rem;
+  text-align: center;
 }
 
 section.register .register_box .left .contact .register-form textarea:focus,
@@ -1099,23 +1100,6 @@ section.register .register_box .left .contact .register-form #register_submit:ho
           box-shadow: 0px 9px 15px -11px var(--color-font-mint);
 }
 
-section.register .register_box .left .contact .register-form .signin-row p {
-  font-size: 1.4rem;
-  font-weight: 400;
-  text-align: center;
-}
-
-section.register .register_box .left .contact .register-form .signin-row p a {
-  text-decoration: none;
-  color: var(--color-font-blue);
-  font-weight: 600;
-}
-
-section.register .register_box .left .contact .register-form .signin-row p a:hover {
-  color: var(--color-font-mint);
-  text-decoration: underline;
-}
-
 section.register .register_box .right {
   height: 100%;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(7%, rgba(0, 0, 0, 0.200718)), to(rgba(0, 0, 0, 0.200718))), url(https://images.unsplash.com/photo-1586434722766-b46308f072ed?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1642);
@@ -1183,17 +1167,18 @@ section.register .register_box .right .right-text h5 {
   section.register .register_box .left .contact .register-form .register-col-btn .btn {
     font-size: 1.6rem;
   }
-  section.register .register_box .left .contact .register-form .register-row p {
-    font-size: 1.4rem;
+  section.register .register_box .left .contact .register-form .signin-row p {
+    font-size: 1.3rem;
     font-weight: 400;
     text-align: center;
   }
-  section.register .register_box .left .contact .register-form .register-row p a {
+  section.register .register_box .left .contact .register-form .signin-row p a {
+    font-size: 1.4rem;
     text-decoration: none;
     color: var(--color-font-blue);
     font-weight: 600;
   }
-  section.register .register_box .left .contact .register-form .register-row p a:hover {
+  section.register .register_box .left .contact .register-form .signin-row p a:hover {
     color: var(--color-font-mint);
     text-decoration: underline;
   }
@@ -1264,17 +1249,18 @@ section.register .register_box .right .right-text h5 {
     -webkit-box-shadow: 0px 9px 15px -11px var(--color-font-mint);
             box-shadow: 0px 9px 15px -11px var(--color-font-mint);
   }
-  section.register .register_box .left .contact .register-form .register-row p {
-    font-size: 1.4rem;
+  section.register .register_box .left .contact .register-form .signin-row p {
+    font-size: 1.2rem;
     font-weight: 400;
     text-align: center;
   }
-  section.register .register_box .left .contact .register-form .register-row p a {
+  section.register .register_box .left .contact .register-form .signin-row p a {
+    font-size: 1.3rem;
     text-decoration: none;
     color: var(--color-font-blue);
     font-weight: 600;
   }
-  section.register .register_box .left .contact .register-form .register-row p a:hover {
+  section.register .register_box .left .contact .register-form .signin-row p a:hover {
     color: var(--color-font-mint);
     text-decoration: underline;
   }
@@ -1366,8 +1352,9 @@ section.login .login_box .left .contact .login-form {
           align-items: center;
 }
 
-section.login .login_box .left .contact .login-form h1 {
+section.login .login_box .left .contact .login-form h2 {
   font-size: 3rem;
+  text-align: center;
 }
 
 section.login .login_box .left .contact .login-form textarea:focus,
@@ -1424,23 +1411,6 @@ section.login .login_box .left .contact .login-form .login-col-btn .btn:hover {
   background: var(--color-font-mint);
   -webkit-box-shadow: 0px 9px 15px -11px var(--color-font-mint);
           box-shadow: 0px 9px 15px -11px var(--color-font-mint);
-}
-
-section.login .login_box .left .contact .login-form .login-row p {
-  font-size: 1.4rem;
-  font-weight: 400;
-  text-align: center;
-}
-
-section.login .login_box .left .contact .login-form .login-row p a {
-  text-decoration: none;
-  color: var(--color-font-blue);
-  font-weight: 600;
-}
-
-section.login .login_box .left .contact .login-form .login-row p a:hover {
-  color: var(--color-font-mint);
-  text-decoration: underline;
 }
 
 section.login .login_box .right {
@@ -1514,11 +1484,12 @@ section.login .login_box .right .right-text h5 {
     font-size: 1.6rem;
   }
   section.login .login_box .left .contact .login-form .login-row p {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 400;
     text-align: center;
   }
   section.login .login_box .left .contact .login-form .login-row p a {
+    font-size: 1.4rem;
     text-decoration: none;
     color: var(--color-font-blue);
     font-weight: 600;
@@ -1596,11 +1567,12 @@ section.login .login_box .right .right-text h5 {
             box-shadow: 0px 9px 15px -11px var(--color-font-mint);
   }
   section.login .login_box .left .contact .login-form .login-row p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 400;
     text-align: center;
   }
   section.login .login_box .left .contact .login-form .login-row p a {
+    font-size: 1.3rem;
     text-decoration: none;
     color: var(--color-font-blue);
     font-weight: 600;
@@ -2922,6 +2894,8 @@ section.login .login_box .right .right-text h5 {
   --color-font-white: #fff;
   --color-font-red-blood: #880808;
   --color-font-grey: rgb(164, 164, 164);
+  --color-font-alert: #d0342c;
+  --color-font-itsok: #2fbf71;
   --color-back-blue: #2e4052;
   --color-back-white: #fff;
   --color-back-mint: #bdd9bf;
@@ -3245,6 +3219,40 @@ section.login .login_box .right .right-text h5 {
   margin-left: 1rem;
 }
 
+.email_valid,
+.email_invalid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.notification_valid,
+.notification_invalid {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.email_valid,
+.notification_valid {
+  color: var(--color-font-itsok);
+}
+
+.email_invalid,
+.notification_invalid {
+  color: var(--color-font-alert);
+}
+
+@media screen and (max-width: 499px) {
+  .notification_valid,
+  .notification_invalid {
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .account-title {
     text-align: center;
@@ -3264,6 +3272,203 @@ section.login .login_box .right .right-text h5 {
 #map {
   width: 100%;
   height: 50rem;
+}
+
+.contact-form-container {
+  width: 100%;
+  max-width: 128rem;
+  margin-inline: auto;
+  padding: 3rem 2rem;
+  font-size: 1.5rem;
+}
+
+.contact-form-container h2 {
+  font-size: 3rem;
+  margin: 0;
+  font-family: var(--font-family-roboto);
+}
+
+.contact-form-container .contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact-form-container .contact-form textarea:focus,
+.contact-form-container .contact-form input:focus {
+  outline: none;
+}
+
+.contact-form-container .contact-form .contact-form-informations {
+  display: -ms-grid;
+  display: grid;
+}
+
+.contact-form-container .contact-form input {
+  border: none;
+  margin: 13px 0px;
+  border-bottom: 1px solid var(--color-font-blue);
+  padding: 7px 9px;
+  overflow: hidden;
+  background: transparent;
+  font-weight: 500;
+  font-family: var(--font-family-roboto);
+}
+
+.contact-form-container .contact-form input::-webkit-input-placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form input:-ms-input-placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form input::-ms-input-placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form input::placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+  border-bottom: 1px solid var(--color-font-blue);
+  border-radius: 0.5rem;
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+  padding: 1rem;
+}
+
+.contact-form-container .contact-form textarea::-webkit-input-placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form textarea:-ms-input-placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form textarea::-ms-input-placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form textarea::placeholder {
+  font-family: var(--font-family-roboto);
+  font-weight: 400;
+}
+
+.contact-form-container .contact-form input[type="checkbox"] {
+  accent-color: var(--color-font-blue);
+  cursor: pointer;
+}
+
+.contact-form-container .contact-form .contact-form-btn button {
+  cursor: pointer;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 8px;
+  display: block;
+  padding: 1rem 2rem;
+  background: var(--color-font-blue);
+  color: #fff;
+  font-weight: bold;
+}
+
+.contact-form-container .contact-form .contact-form-btn button:hover {
+  background: var(--color-font-mint);
+}
+
+.contact-form-container .contact-form .submit-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact-form-container .contact-form .submit-container .notice-contact-form {
+  color: var(--color-font-itsok);
+  font-weight: 600;
+}
+
+.contact-form-container .contact-form .submit-container .agree-terms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-form-container .contact-form .submit-container .agree-terms #contact_agreeTerms {
+  display: inline-block;
+}
+
+.contact-form-container .contact-form .submit-container .agree-terms p {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.contact-form-container .agree-terms-notice {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 690px) {
+  .contact-form-container .contact-form-informations {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -webkit-column-gap: 2rem;
+            column-gap: 2rem;
+  }
+  .contact-form-container .submit-container {
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 689px) {
+  .contact-form-container .contact-form-informations {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    margin-bottom: 1rem;
+  }
+  .contact-form-container .submit-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .contact-form-container .submit-container .notice-contact-form {
+    text-align: center;
+  }
+  .contact-form-container .submit-container .agree-terms {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+  }
+  .contact-form-container .submit-container .contact-form-btn {
+    width: 100%;
+  }
+  .contact-form-container .submit-container .contact-form-btn button {
+    width: 100%;
+  }
+  .contact-form-container .agree-terms-notice {
+    text-align: center;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html,

@@ -9,17 +9,13 @@
 				<div class="top_link"><a href="{{ path('home') }}">Retour à l'accueil</a></div>
 				<div class="contact">
                     <form method="post" class="login-form">
-                        <h1>Login</h1>
+                        <h2>Login</h2>
                         {# <label for="inputEmail">Email</label> #}
                         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Email">
                         {# <label for="inputPassword">Mot de passe</label> #}
                         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Mot de passe">
 
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                        {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                        {% endif %}
 
                         {% if app.user %}
                         <div class="login-status">
@@ -32,9 +28,17 @@
                             </button>
                         </div>
                         <div class="login-row">
-                            <p>Pas encore de compte?<p>
-                            <a href="{{ path('register') }}">Inscrivez-vous</a>
+                            <p>Pas encore de compte? <a href="{{ path('register') }}">Inscrivez-vous</a><p>
+                            
+                            <p>Password oublié? <a href="{{ path('reset_password') }}">Réinitialisez le ici</a><p>
+                            
                         </div>
+                        {% if error %}
+                            <div class="email_invalid">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        {% for message in app.flashes('notice') %}
+                            <p class="email_valid">{{ message }}</p>
+                        {% endfor %}
                     </form>
 				</div>
 			</div>

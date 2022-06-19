@@ -19,7 +19,7 @@ class Address
 
     /**
      * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="addresses")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $customer;
 

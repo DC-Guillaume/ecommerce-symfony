@@ -17,7 +17,8 @@ class AccountPasswordController extends AbstractController
      */
     public function index(ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $notification = null;
+        $notification_valid = null;
+        $notification_invalid = null;
         $em = $doctrine->getManager();
 
         $customer= $this->getUser();
@@ -36,14 +37,15 @@ class AccountPasswordController extends AbstractController
                 $customer->setPassword($password);
                 $em->flush();
 
-                $notification = "Mot de passe mis à jour";
+                $notification_valid = "Mot de passe mis à jour";
             } else {
-                $notification = "Mot de passe actuel invalide";
+                $notification_invalid = "Mot de passe actuel invalide";
             }
         }
         return $this->render('account/password.html.twig', [
             'form' => $form->createView(),
-            'notification' => $notification
+            'notification_valid' => $notification_valid,
+            'notification_invalid' => $notification_invalid
         ]);
     }
 }

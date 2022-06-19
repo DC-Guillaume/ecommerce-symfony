@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Customer;
 use App\Entity\Category;
+use App\Entity\Contact;
 use App\Entity\Product;
 use App\Entity\Delivery;
 use App\Entity\Order;
@@ -32,17 +33,20 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('diy district');
+            ->setTitle('diy district')
+            ->setFaviconPath('favicon.svg');
     }
 
     public function configureMenuItems(): iterable
     {
         // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToRoute('Site', 'fa fa-home', 'home');
         yield MenuItem::linkToCrud('Commandes', 'fa fa-shopping-bag', Order::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', Customer::class);
         yield MenuItem::linkToCrud('Catégories', 'fa fa-list', Category::class); 
         yield MenuItem::linkToCrud('Produits', 'fa fa-tags', Product::class);
         yield MenuItem::linkToCrud('Livreurs', 'fa fa-truck', Delivery::class);
         yield MenuItem::linkToCrud('Sliders', 'fa fa-image', Slider::class);
+        yield MenuItem::linkToCrud('Messages', 'fa fa-comment-alt', Contact::class);
     }
 }

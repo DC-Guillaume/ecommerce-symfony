@@ -41,6 +41,43 @@
   }
 }
 
+//=============================================================================
+// Alerts informations
+//=============================================================================
+.email_valid,
+.email_invalid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.notification_valid,
+.notification_invalid {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.email_valid,
+.notification_valid {
+  color: var(--color-font-itsok);
+}
+
+.email_invalid,
+.notification_invalid {
+  color: var(--color-font-alert);
+}
+
+@media screen and(max-width: 499px) {
+  .notification_valid,
+  .notification_invalid {
+    text-align: center;
+  }
+}
+
 @media screen and(max-width: 768px) {
   .account-title {
     text-align: center;

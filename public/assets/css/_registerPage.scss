@@ -52,6 +52,7 @@ section.register {
 
           h2 {
             font-size: 3rem;
+            text-align: center;
           }
 
           textarea:focus,
@@ -118,25 +119,6 @@ section.register {
             &:hover {
               background: var(--color-font-mint);
               box-shadow: 0px 9px 15px -11px var(--color-font-mint);
-            }
-          }
-
-          .signin-row {
-            p {
-              font-size: 1.4rem;
-              font-weight: 400;
-              text-align: center;
-
-              a {
-                text-decoration: none;
-                color: var(--color-font-blue);
-                font-weight: 600;
-
-                &:hover {
-                  color: var(--color-font-mint);
-                  text-decoration: underline;
-                }
-              }
             }
           }
         }
@@ -208,13 +190,14 @@ section.register {
               }
             }
 
-            .register-row {
+            .signin-row {
               p {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
                 font-weight: 400;
                 text-align: center;
 
                 a {
+                  font-size: 1.4rem;
                   text-decoration: none;
                   color: var(--color-font-blue);
                   font-weight: 600;
@@ -287,13 +270,14 @@ section.register {
               }
             }
 
-            .register-row {
+            .signin-row {
               p {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
                 font-weight: 400;
                 text-align: center;
 
                 a {
+                  font-size: 1.3rem;
                   text-decoration: none;
                   color: var(--color-font-blue);
                   font-weight: 600;

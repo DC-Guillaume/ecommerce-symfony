@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Password oublié - DiY District{% endblock %}
+
+{% block content %}
+    <section class="login">
+		<div class="login_box">
+			<div class="left">
+				<div class="top_link"><a href="{{ path('home') }}">Retour à l'accueil</a></div>
+				<div class="contact">
+                    <form method="post" class="login-form">
+                        <h2>Réinitialiser le password</h2>
+                        <input type="email" value="" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Email">
+                        <div class="login-col-btn">
+                            <button class="btn" type="submit">
+                                Valider
+                            </button>
+                        </div>
+                        <div class="login-row">
+                            <p>La mémoire vous revient? <a href="{{ path('app_login') }}">Vous connecter</a><p>                            
+                        </div>
+                    </form>
+				</div>
+                {% for message in app.flashes('notice_ok') %}
+                    <p class="email_valid">{{ message }}</p>
+                {% endfor %}
+                {% for message in app.flashes('notice_error') %}
+                    <p class="email_invalid">{{ message }}</p>
+                {% endfor %}
+			</div>
+			<div class="right">
+				<div class="right-text">
+					<a href="{{ path('home') }}" class"brand"><img src="/uploads/images/logodiy.png" alt="" class="logo" width="100px"></a>
+					<h2>diy district</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
