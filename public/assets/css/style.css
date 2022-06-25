@@ -2552,6 +2552,13 @@ section.login .login_box .right .right-text h5 {
   aspect-ratio: 16/9;
 }
 
+.error-page h1 {
+  text-align: center;
+}
+.error-page .image-illustration img {
+  object-fit: contain;
+}
+
 * {
   box-sizing: border-box;
 }

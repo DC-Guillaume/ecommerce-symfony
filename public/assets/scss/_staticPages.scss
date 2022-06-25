@@ -39,3 +39,14 @@
     }
   }
 }
+
+.error-page {
+  h1 {
+    text-align: center;
+  }
+  .image-illustration {
+    img {
+      object-fit: contain;
+    }
+  }
+}

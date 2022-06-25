@@ -7,10 +7,10 @@
 
 {% block content %}
 <div class="static-page-content error-page">
-    <h1>Page introuvable</h1>
+    <h1>Erreur critique du site</h1>
     <div class="image-illustration">
         <img src="./uploads/images/japan01.jpg" alt="japan kimono geisha">
     </div>
-    <p>La page demandée est introuvable. Vérifier si l'url ne présente aucune faute d'orthographe ou <a href="{{ path('home') }}"><span class="bold-text">retournez à la boutique</span></a>.</p>
+    <p>La page demandée présente une erreur importante. N'hésitez pas à contacter le webmaster du site via la page <a href="{{ path('contact') }}">contact</a>. Ou en envoyant un email à l'adresse: contact@diydistrict.fr</p>
 </div>
 {% endblock %}
