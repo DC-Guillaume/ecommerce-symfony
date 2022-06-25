@@ -22,20 +22,29 @@ const menuSlide = () => {
   const burger = document.querySelector(".burger");
   const close = document.querySelector(".close-menu-slider");
   const menu = document.querySelector(".onglets");
+  const body = document.querySelector("body");
   const pageOverlay = document.querySelector(".overlay-menu");
 
-  // console.log("2");
+  if (burger != null) {
+    // Gestion du menu Mobile
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("menu-slider-active");
+      pageOverlay.classList.toggle("overlay-is-visible");
+      body.classList.toggle("body-fixed-position");
+    });
 
-  // Gestion du menu Mobile
-  burger.addEventListener("click", () => {
-    menu.classList.toggle("menu-slider-active");
-    pageOverlay.classList.toggle("overlay-is-visible");
-  });
+    close.addEventListener("click", () => {
+      menu.classList.remove("menu-slider-active");
+      pageOverlay.classList.remove("overlay-is-visible");
+      body.classList.remove("body-fixed-position");
+    });
 
-  close.addEventListener("click", () => {
-    menu.classList.remove("menu-slider-active");
-    pageOverlay.classList.remove("overlay-is-visible");
-  });
+    pageOverlay.addEventListener("click", () => {
+      menu.classList.remove("menu-slider-active");
+      pageOverlay.classList.remove("overlay-is-visible");
+      body.classList.remove("body-fixed-position");
+    });
+  }
 };
 
 menuSlide();

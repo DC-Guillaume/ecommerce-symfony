@@ -1,0 +1,41 @@
+.static-page-content {
+  max-width: 100rem;
+  margin-inline: auto;
+  margin-top: 5rem;
+  font-size: 1.6rem;
+  padding: 0 3rem;
+
+  h1 {
+    font-size: 3rem;
+    font-family: "roboto";
+    font-weight: 400;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    .bold-text {
+      font-weight: 600;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-font-blue);
+
+    &:hover {
+      color: var(--color-font-mint);
+    }
+  }
+
+  .image-illustration {
+    width: 100%;
+    margin: 5rem 0;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
+  }
+}

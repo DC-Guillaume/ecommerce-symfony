@@ -1,1 +1,26 @@
-{}
+{
+  "dependencies": {
+    "sass": "^1.53.0"
+  },
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "compile": "sass --watch ./public/assets/scss/style.scss ./public/assets/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DC-Guillaume/ecommerce-symfony.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DC-Guillaume/ecommerce-symfony/issues"
+  },
+  "homepage": "https://github.com/DC-Guillaume/ecommerce-symfony#readme",
+  "description": ""
+}

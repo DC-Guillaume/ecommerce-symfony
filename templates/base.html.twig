@@ -66,7 +66,8 @@
             {% for cat in cats.getCategories %}
               <a href="{{ path('categories', {slug: cat.slug}) }}">{{cat.name}}</a>
             {% endfor %}
-              <a href="{{ path('home') }}">A propos</a>
+              <a href="{{ path('products') }}">Tout nos tissus</a>
+              <a href="{{ path('about-us') }}">A propos</a>
             </div>
           </div>
           <div id="burger-menu" class="burger">
@@ -147,9 +148,9 @@
           <div class="separator"></div>
           <div class="footer-bottom">
             <div class="informations">
-              <p>mentions légales</p>
-              <p>politique de confidentialité</p>
-              <p>gestion des cookies</p>
+              <a href="{{ path('mentions') }}">mentions légales</a>
+              <a href="{{ path('politique') }}">politique de confidentialité</a>
+              <a href="{{ path('conditions') }}">Conditions générales de vente</a>
             </div>
             <p>© DiY District, 2022 All rights reserved</p>
           </div>

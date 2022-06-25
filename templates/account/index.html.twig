@@ -18,11 +18,11 @@
     <div class="container-links">
         <h2>Menu</h2>
         {% if is_granted('ROLE_ADMIN')%}
-            <a href="{{ path('admin')}}" class="account-link">Administration du site</a>
+            <a href="{{ path('admin')}}" class="account-link"><i class="fa-solid fa-toolbox"></i> Administration du site</a>
         {% endif %}
-        <a href="{{ path('account_order')}}" class="account-link">Commandes</a>
-        <a href="{{ path('account_address')}}" class="account-link">Adresses</a>
-        <a href="{{ path('account_password')}}" class="account-link">Modifier mon mot de passe</a>
+        <a href="{{ path('account_order')}}" class="account-link"><i class="fa-solid fa-box"></i> Commandes</a>
+        <a href="{{ path('account_address')}}" class="account-link"><i class="fa-solid fa-address-card"></i> Adresses</a>
+        <a href="{{ path('account_password')}}" class="account-link"><i class="fa-solid fa-lock"></i> Modifier mon mot de passe</a>
     </div>
 </div>
 

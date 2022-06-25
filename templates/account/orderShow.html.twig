@@ -24,28 +24,28 @@
                     <h3 >Commande No.</h3>
                     <p>{{order.reference}}</p>
                 </div>
-                <div class="shipping-method">
-                    <p class="shipping-method-title">Mode de livraison selectionné</p>
-                    <p>{{ order.deliveryName}}<p>
-                </div>
+                
                 <div class="order-card-details">
-                    <div class="order-date">
-                        <p class="order-title">faite le</p>
-                        <p>{{order.createdAt|date('d/m/Y')}}</p>
-                    </div>
+                    <h3>Détails de cette commande</h3>
+                    <p class="order-date">Effectuée le {{order.createdAt|date('d/m/Y')}}</p>
+                    <h3>Produits</h3>
                     {% for product in order.orderDetails %}
-                    <div>
-                        <div>{{product.product}}</div>
-                        <div>{{product.quantity}}</div>
-                        <div>{{ (product.price / 100)|number_format(2, ',','.')}} €</div>
-                        <div>{{ (product.total / 100)|number_format(2, ',','.')}} €</div>
+                    <div class="order-details">
+                        <p class="order-product-name">{{product.product}}</p>
+                        <p>quantité : {{product.quantity}}</p>
+                        <p>prix-unitaire : {{ (product.price / 100)|number_format(2, ',','.')}} €</p>
+                        <p>prix-cumulé : {{ (product.total / 100)|number_format(2, ',','.')}} €</p>
                     </div>
                 {% endfor %}
+                </div>
+                <div class="shipping-method">
+                    <h3 class="shipping-method-title">Mode de livraison</h3>
+                    <p>{{ order.deliveryName}}<p>
                 </div>
                 <div class="order-details-total">
                     <p><span class="text-bold">Sous-total :</span> {{ (order.getTotal / 100)|number_format(2, ',','.')}} €</p>
                     <p><span class="text-bold">Frais de port :</span> {{ (order.deliveryPrice / 100)|number_format(2, ',','.')}} €</p>
-                    <p><span class="text-bold">Total : </span>{{ ((order.deliveryPrice + order.getTotal) / 100)|number_format(2, ',','.')}} €</p>
+                    <p><span class="text-bold">Total de commande : </span>{{ ((order.deliveryPrice + order.getTotal) / 100)|number_format(2, ',','.')}} €</p>
                 </div>
             </div>
         </div>

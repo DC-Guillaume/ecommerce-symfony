@@ -78,14 +78,26 @@ footer {
       display: flex;
       justify-content: space-between;
 
+      a {
+        display: block;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: #2e4052;
+
+        &:hover {
+          color: var(--color-font-mint);
+        }
+      }
+
       p {
         font-size: 1.4rem;
         color: #2e4052;
+        margin: 0;
       }
 
       .informations {
         display: flex;
-        gap: 2rem;
+        column-gap: 2rem;
       }
     }
   }
@@ -125,10 +137,13 @@ footer {
         text-align: center;
 
         .informations {
-          gap: 1rem;
+          flex-direction: column;
+          gap: 0.5rem;
+          margin-bottom: 1rem;
         }
+
         p {
-          font-size: 1.1rem;
+          font-size: 1.4rem;
         }
       }
     }
